@@ -10,7 +10,6 @@ import {
   Linkedin,
   Github,
   Mail,
-  ChevronLeft,
 } from "lucide-react"
 
 interface NavigationMenuProps {
@@ -18,13 +17,13 @@ interface NavigationMenuProps {
   onNavigate: (sectionId: string) => void
 }
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+const iconMap = {
   user: User,
   briefcase: Briefcase,
   zap: Zap,
   heart: Heart,
   award: Award,
-}
+} as const
 
 export function NavigationMenu({ activeSection, onNavigate }: NavigationMenuProps) {
   const { personal } = profileData
@@ -48,7 +47,7 @@ export function NavigationMenu({ activeSection, onNavigate }: NavigationMenuProp
       {/* Navigation Items */}
       <nav className="flex-1 space-y-1">
         {navigationItems.map((item) => {
-          const IconComponent = iconMap[item.icon] || User
+          const IconComponent = iconMap[item.icon as keyof typeof iconMap] || User
           const isActive = activeSection === item.id
 
           return (
@@ -63,7 +62,6 @@ export function NavigationMenu({ activeSection, onNavigate }: NavigationMenuProp
             >
               <IconComponent className="w-5 h-5" />
               <span className="font-medium">{item.label}</span>
-              {isActive && <ChevronLeft className="w-4 h-4 ml-auto" />}
             </button>
           )
         })}
@@ -75,31 +73,37 @@ export function NavigationMenu({ activeSection, onNavigate }: NavigationMenuProp
           Connect
         </p>
         <div className="flex items-center gap-2">
-          <a
-            href={personal.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="w-4 h-4" />
-          </a>
-          <a
-            href={personal.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="GitHub"
-          >
-            <Github className="w-4 h-4" />
-          </a>
-          <a
-            href={`mailto:${personal.email}`}
-            className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="Email"
-          >
-            <Mail className="w-4 h-4" />
-          </a>
+          {personal.linkedin && (
+            <a
+              href={personal.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+          )}
+          {personal.github && (
+            <a
+              href={personal.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+          )}
+          {personal.email && (
+            <a
+              href={`mailto:${personal.email}`}
+              className="p-2.5 rounded-lg bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
+          )}
         </div>
       </div>
 

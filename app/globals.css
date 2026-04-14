@@ -106,6 +106,7 @@
   backface-visibility: hidden;
   will-change: transform;
   background: oklch(0.08 0.005 260);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .meny-contents {
@@ -123,6 +124,11 @@
 
 .meny-cover {
   cursor: pointer;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.meny-active .meny-cover {
   pointer-events: auto;
 }
 

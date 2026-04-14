@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useCallback, useState } from "react"
+import { useEffect, useRef, useCallback } from "react"
 
 interface MenyConfig {
   position?: "left" | "right" | "top" | "bottom"
@@ -13,7 +13,6 @@ interface MenyConfig {
   transitionEasing?: string
   mouse?: boolean
   touch?: boolean
-  gradient?: string
 }
 
 interface MenyProps {
@@ -28,22 +27,18 @@ export function Meny({
   config = {},
   menuContent,
   children,
-  isOpen: controlledIsOpen,
+  isOpen = false,
   onOpenChange,
 }: MenyProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const contentsRef = useRef<HTMLDivElement>(null)
   const coverRef = useRef<HTMLDivElement>(null)
-  const [internalIsOpen, setInternalIsOpen] = useState(false)
-  const isMouseDownRef = useRef(false)
-  const touchStartRef = useRef({ x: 0, y: 0 })
-  const touchMoveRef = useRef<{ x: number | null; y: number | null }>({ x: null, y: null })
+  const isFirstRender = useRef(true)
 
-  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen
-
-  const defaultConfig: Required<MenyConfig> = {
-    position: "left",
+  // Default configuration
+  const defaultConfig = {
+    position: "left" as const,
     width: 280,
     height: 300,
     angle: 30,
@@ -53,332 +48,201 @@ export function Meny({
     transitionEasing: "ease",
     mouse: true,
     touch: true,
-    gradient: "rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.65) 100%)",
   }
 
   const mergedConfig = { ...defaultConfig, ...config }
-  const { position, width, height, angle, threshold, overlap, transitionDuration, transitionEasing } = mergedConfig
+  const { position, width, height, angle, threshold, overlap } = mergedConfig
 
-  // Calculate transform values
-  const menuAngle = angle
-  const contentsAngle = angle / -2
-
-  // Get transforms based on position
-  const getTransforms = useCallback(() => {
-    let menuTransformOrigin = ""
-    let menuTransformClosed = ""
-    let menuTransformOpened = ""
-    let contentsTransformOrigin = ""
-    let contentsTransformClosed = ""
-    let contentsTransformOpened = ""
-
-    switch (position) {
-      case "top":
-        menuTransformOrigin = "50% 0%"
-        menuTransformClosed = `rotateX(${menuAngle}deg) translateY(-100%) translateY(${overlap}px)`
-        menuTransformOpened = ""
-        contentsTransformOrigin = "50% 0"
-        contentsTransformClosed = ""
-        contentsTransformOpened = `translateY(${height}px) rotateX(${contentsAngle}deg)`
-        break
-
-      case "right":
-        menuTransformOrigin = "100% 50%"
-        menuTransformClosed = `rotateY(${menuAngle}deg) translateX(100%) translateX(-2px) scale(1.01)`
-        menuTransformOpened = ""
-        contentsTransformOrigin = "100% 50%"
-        contentsTransformClosed = ""
-        contentsTransformOpened = `translateX(-${width}px) rotateY(${contentsAngle}deg)`
-        break
-
-      case "bottom":
-        menuTransformOrigin = "50% 100%"
-        menuTransformClosed = `rotateX(${-menuAngle}deg) translateY(100%) translateY(-${overlap}px)`
-        menuTransformOpened = ""
-        contentsTransformOrigin = "50% 100%"
-        contentsTransformClosed = ""
-        contentsTransformOpened = `translateY(-${height}px) rotateX(${-contentsAngle}deg)`
-        break
-
-      default: // left
-        menuTransformOrigin = "100% 50%"
-        menuTransformClosed = `translateX(-100%) translateX(${overlap}px) scale(1.01) rotateY(${-menuAngle}deg)`
-        menuTransformOpened = ""
-        contentsTransformOrigin = "0 50%"
-        contentsTransformClosed = ""
-        contentsTransformOpened = `translateX(${width}px) rotateY(${-contentsAngle}deg)`
-    }
-
-    return {
-      menuTransformOrigin,
-      menuTransformClosed,
-      menuTransformOpened,
-      contentsTransformOrigin,
-      contentsTransformClosed,
-      contentsTransformOpened,
-    }
-  }, [position, menuAngle, contentsAngle, width, height, overlap])
-
-  const transforms = getTransforms()
-
-  const setOpenState = useCallback((open: boolean) => {
-    if (controlledIsOpen === undefined) {
-      setInternalIsOpen(open)
-    }
-    onOpenChange?.(open)
-  }, [controlledIsOpen, onOpenChange])
+  // Calculate transforms based on position and angle
+  const transforms = {
+    menuOrigin: "100% 50%",
+    contentsOrigin: "0% 50%",
+    menuClosed: `translateX(-100%) translateX(${overlap}px) rotateY(-${angle}deg)`,
+    menuOpened: "translateX(0) rotateY(0deg)",
+    contentsClosed: "translateX(0) rotateY(0deg)",
+    contentsOpened: `translateX(${width}px) rotateY(-${angle / 2}deg)`,
+  }
 
   const open = useCallback(() => {
-    if (isOpen) return
-    setOpenState(true)
-  }, [isOpen, setOpenState])
+    if (!isOpen) {
+      console.log('Meny: Opening menu')
+      onOpenChange?.(true)
+    }
+  }, [onOpenChange, isOpen])
 
   const close = useCallback(() => {
-    if (!isOpen) return
-    setOpenState(false)
-  }, [isOpen, setOpenState])
+    if (isOpen) {
+      console.log('Meny: Closing menu')
+      onOpenChange?.(false)
+    }
+  }, [onOpenChange, isOpen])
 
-  // Apply visual changes based on open state
+  // Debug effect to track state changes
+  useEffect(() => {
+    console.log('Meny: isOpen state changed to:', isOpen)
+  }, [isOpen])
+
+  // Apply transforms and styles when open state changes
   useEffect(() => {
     const wrapper = wrapperRef.current
     const menu = menuRef.current
     const contents = contentsRef.current
     const cover = coverRef.current
 
-    if (!wrapper || !menu || !contents || !cover) return
+    if (!wrapper || !menu || !contents || !cover) {
+      console.log('Missing refs:', { wrapper, menu, contents, cover })
+      return
+    }
 
+    console.log('Applying state changes, isOpen:', isOpen)
+
+    // Apply state changes
     if (isOpen) {
       wrapper.classList.add("meny-active")
-      cover.style.height = `${contents.scrollHeight}px`
       cover.style.visibility = "visible"
       cover.style.opacity = "1"
-      contents.style.transform = transforms.contentsTransformOpened
-      menu.style.transform = transforms.menuTransformOpened
+      cover.style.pointerEvents = "auto"
+      menu.style.transform = transforms.menuOpened
+      contents.style.transform = transforms.contentsOpened
+      console.log('Applied open transforms:', { menu: transforms.menuOpened, contents: transforms.contentsOpened })
     } else {
       wrapper.classList.remove("meny-active")
       cover.style.visibility = "hidden"
       cover.style.opacity = "0"
-      contents.style.transform = transforms.contentsTransformClosed
-      menu.style.transform = transforms.menuTransformClosed
+      cover.style.pointerEvents = "none"
+      menu.style.transform = transforms.menuClosed
+      contents.style.transform = transforms.contentsClosed
+      console.log('Applied closed transforms:', { menu: transforms.menuClosed, contents: transforms.contentsClosed })
     }
   }, [isOpen, transforms])
 
-  // Initial setup
+  // Initial setup and styling - only run once
   useEffect(() => {
+    if (!isFirstRender.current) return
+    
+    console.log('Meny: Setting up initial styles...')
     const wrapper = wrapperRef.current
     const menu = menuRef.current
     const contents = contentsRef.current
     const cover = coverRef.current
 
-    if (!wrapper || !menu || !contents || !cover) return
-
-    // Setup wrapper
-    wrapper.style.perspective = "800px"
-    wrapper.style.perspectiveOrigin = transforms.contentsTransformOrigin
-
-    // Setup menu dimensions
-    switch (position) {
-      case "top":
-        menu.style.width = "100%"
-        menu.style.height = `${height}px`
-        menu.style.top = "0"
-        menu.style.left = "0"
-        break
-      case "right":
-        menu.style.width = `${width}px`
-        menu.style.height = "100%"
-        menu.style.top = "0"
-        menu.style.right = "0"
-        break
-      case "bottom":
-        menu.style.width = "100%"
-        menu.style.height = `${height}px`
-        menu.style.bottom = "0"
-        menu.style.left = "0"
-        break
-      default: // left
-        menu.style.width = `${width}px`
-        menu.style.height = "100%"
-        menu.style.top = "0"
-        menu.style.left = "0"
+    if (!wrapper || !menu || !contents || !cover) {
+      console.log('Missing refs in setup:', { wrapper, menu, contents, cover })
+      return
     }
+    
+    isFirstRender.current = false
 
-    // Setup menu transforms
-    menu.style.position = "fixed"
-    menu.style.zIndex = "1"
-    menu.style.transformOrigin = transforms.menuTransformOrigin
-    menu.style.transition = `all ${transitionDuration} ${transitionEasing}`
-    menu.style.transform = transforms.menuTransformClosed
+    // Setup 3D context
+    wrapper.style.perspective = "800px"
+    wrapper.style.perspectiveOrigin = transforms.contentsOrigin
+
+    // Setup menu
+    menu.style.position = "fixed" 
+    menu.style.top = "0"
+    menu.style.left = "0"
+    menu.style.width = `${width}px`
+    menu.style.height = "100vh"
+    menu.style.zIndex = "2000"
+    menu.style.transformOrigin = transforms.menuOrigin
+    menu.style.transition = `transform ${mergedConfig.transitionDuration} ${mergedConfig.transitionEasing}`
+    menu.style.transform = transforms.menuClosed
     menu.style.backfaceVisibility = "hidden"
+    menu.style.willChange = "transform"
 
-    // Setup contents transforms
-    contents.style.transformOrigin = transforms.contentsTransformOrigin
-    contents.style.transition = `all ${transitionDuration} ${transitionEasing}`
-    contents.style.transform = transforms.contentsTransformClosed
+    // Setup contents
+    contents.style.transformOrigin = transforms.contentsOrigin
+    contents.style.transition = `transform ${mergedConfig.transitionDuration} ${mergedConfig.transitionEasing}`
+    contents.style.transform = transforms.contentsClosed
     contents.style.transformStyle = "preserve-3d"
 
-    // Setup cover
+    // Setup cover overlay
     cover.style.position = "absolute"
-    cover.style.display = "block"
+    cover.style.top = "0"
+    cover.style.left = "0" 
     cover.style.width = "100%"
     cover.style.height = "100%"
-    cover.style.left = "0"
-    cover.style.top = "0"
-    cover.style.zIndex = "1000"
+    cover.style.background = "rgba(0, 0, 0, 0.4)"
+    cover.style.zIndex = "1999"
     cover.style.visibility = "hidden"
     cover.style.opacity = "0"
-    cover.style.background = `linear-gradient(to ${position === "left" ? "right" : position === "right" ? "left" : position === "top" ? "bottom" : "top"}, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.65) 100%)`
-    cover.style.transition = `all ${transitionDuration} ${transitionEasing}`
+    cover.style.transition = `opacity ${mergedConfig.transitionDuration} ${mergedConfig.transitionEasing}`
     cover.style.cursor = "pointer"
+    cover.style.pointerEvents = "none"
 
-  }, [position, width, height, transitionDuration, transitionEasing, transforms])
+    console.log('Meny: Initial setup completed with config:', { width, height, angle, threshold })
+  }, [width, height, transforms, mergedConfig])
 
-  // Mouse events
+  // Mouse hover detection on left edge
   useEffect(() => {
     if (!mergedConfig.mouse) return
 
-    const handleMouseDown = () => {
-      isMouseDownRef.current = true
-    }
-
-    const handleMouseUp = () => {
-      isMouseDownRef.current = false
-    }
-
     const handleMouseMove = (event: MouseEvent) => {
-      if (isMouseDownRef.current) return
-
-      const wrapper = wrapperRef.current
-      if (!wrapper) return
-
-      const rect = wrapper.getBoundingClientRect()
-      const x = event.clientX - rect.left
-      const y = event.clientY - rect.top
-
-      switch (position) {
-        case "top":
-          if (y > height) close()
-          else if (y < threshold) open()
-          break
-        case "right": {
-          const w = wrapper.offsetWidth
-          if (x < w - width) close()
-          else if (x > w - threshold) open()
-          break
-        }
-        case "bottom": {
-          const h = wrapper.offsetHeight
-          if (y < h - height) close()
-          else if (y > h - threshold) open()
-          break
-        }
-        default: // left
-          if (x > width) close()
-          else if (x < threshold) open()
+      const x = event.clientX
+      
+      // Debug log to see mouse position
+      if (x < 10) console.log('Mouse near left edge:', x)
+      
+      // Open when hovering near left edge
+      if (x < threshold && !isOpen) {
+        console.log('Should open menu - x:', x, 'threshold:', threshold, 'isOpen:', isOpen)
+        open()
+      }
+      // Close when moving away from menu area
+      else if (x > width + 50 && isOpen) {
+        console.log('Should close menu - x:', x, 'width:', width, 'isOpen:', isOpen)
+        close()
       }
     }
 
-    document.addEventListener("mousedown", handleMouseDown)
-    document.addEventListener("mouseup", handleMouseUp)
     document.addEventListener("mousemove", handleMouseMove)
-
+    
     return () => {
-      document.removeEventListener("mousedown", handleMouseDown)
-      document.removeEventListener("mouseup", handleMouseUp)
       document.removeEventListener("mousemove", handleMouseMove)
     }
-  }, [position, width, height, threshold, mergedConfig.mouse, open, close])
+  }, [mergedConfig.mouse, threshold, width, isOpen, open, close])
 
-  // Touch events
+  // Touch swipe detection
   useEffect(() => {
     if (!mergedConfig.touch) return
 
-    const handleTouchStart = (event: TouchEvent) => {
-      const wrapper = wrapperRef.current
-      if (!wrapper) return
+    let startX = 0
+    let startY = 0
+    let isDragging = false
 
-      const rect = wrapper.getBoundingClientRect()
-      touchStartRef.current = {
-        x: event.touches[0].clientX - rect.left,
-        y: event.touches[0].clientY - rect.top,
-      }
-      touchMoveRef.current = { x: null, y: null }
+    const handleTouchStart = (event: TouchEvent) => {
+      startX = event.touches[0].clientX
+      startY = event.touches[0].clientY
+      isDragging = false
     }
 
     const handleTouchMove = (event: TouchEvent) => {
-      const wrapper = wrapperRef.current
-      if (!wrapper) return
-
-      const rect = wrapper.getBoundingClientRect()
-      touchMoveRef.current = {
-        x: event.touches[0].clientX - rect.left,
-        y: event.touches[0].clientY - rect.top,
-      }
-
-      const deltaX = touchMoveRef.current.x! - touchStartRef.current.x
-      const deltaY = touchMoveRef.current.y! - touchStartRef.current.y
-
-      // Detect swipe direction
-      if (Math.abs(deltaX) > Math.abs(deltaY)) {
-        if (deltaX < -threshold) {
-          // Swipe left
-          if (position === "right" && isOpen) {
-            close()
-            event.preventDefault()
-          } else if (position === "left" && !isOpen) {
-            // Do nothing - wrong direction
-          }
-        } else if (deltaX > threshold) {
-          // Swipe right
-          if (position === "left" && !isOpen) {
-            open()
-            event.preventDefault()
-          } else if (position === "right" && isOpen) {
-            // Do nothing - wrong direction
-          } else if (position === "left" && isOpen) {
-            close()
-            event.preventDefault()
-          }
-        }
-      } else {
-        if (deltaY < -threshold) {
-          // Swipe up
-          if (position === "bottom" && isOpen) {
-            close()
-            event.preventDefault()
-          } else if (position === "top" && !isOpen) {
+      if (!isDragging) {
+        const deltaX = event.touches[0].clientX - startX
+        const deltaY = event.touches[0].clientY - startY
+        
+        // Only respond to horizontal swipes
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          isDragging = true
+          
+          // Swipe right from left edge to open
+          if (deltaX > threshold && startX < 100 && !isOpen) {
             open()
             event.preventDefault()
           }
-        } else if (deltaY > threshold) {
-          // Swipe down
-          if (position === "top" && isOpen) {
+          // Swipe left to close
+          else if (deltaX < -threshold && isOpen) {
             close()
-            event.preventDefault()
-          } else if (position === "bottom" && !isOpen) {
-            open()
             event.preventDefault()
           }
         }
       }
     }
 
-    const handleTouchEnd = () => {
-      // If no movement, treat as tap
-      if (touchMoveRef.current.x === null && touchMoveRef.current.y === null) {
-        const { x, y } = touchStartRef.current
-        const wrapper = wrapperRef.current
-        if (!wrapper) return
-
-        const isOverContent =
-          (position === "top" && y > height) ||
-          (position === "right" && x < wrapper.offsetWidth - width) ||
-          (position === "bottom" && y < wrapper.offsetHeight - height) ||
-          (position === "left" && x > width)
-
-        if (isOverContent && isOpen) {
-          close()
-        }
+    const handleTouchEnd = (event: TouchEvent) => {
+      // Tap outside menu to close
+      if (!isDragging && isOpen && startX > width) {
+        close()
       }
     }
 
@@ -391,11 +255,7 @@ export function Meny({
       document.removeEventListener("touchmove", handleTouchMove)
       document.removeEventListener("touchend", handleTouchEnd)
     }
-  }, [position, width, height, threshold, mergedConfig.touch, isOpen, open, close])
-
-  const handleCoverClick = () => {
-    close()
-  }
+  }, [mergedConfig.touch, threshold, width, isOpen, open, close])
 
   return (
     <div ref={wrapperRef} className="meny-wrapper">
@@ -404,7 +264,7 @@ export function Meny({
       </div>
       <div ref={contentsRef} className="meny-contents">
         {children}
-        <div ref={coverRef} className="meny-cover" onClick={handleCoverClick} />
+        <div ref={coverRef} className="meny-cover" onClick={close} />
       </div>
     </div>
   )
