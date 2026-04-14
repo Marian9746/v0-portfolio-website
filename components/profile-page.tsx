@@ -51,11 +51,11 @@ export function ProfilePage() {
       <main className="min-h-screen bg-background">
         {/* Menu Hint Arrow */}
         <div
-          className="meny-arrow fixed left-3 top-1/2 -translate-y-1/2 z-10 transition-opacity duration-300"
-          style={{ opacity: isMenuOpen ? 0 : 1 }}
+          className="meny-arrow fixed left-0 top-1/2 -translate-y-1/2 z-10 transition-all duration-300 pointer-events-none"
+          style={{ opacity: isMenuOpen ? 0 : 0.7 }}
         >
-          <div className="flex items-center gap-1 text-muted-foreground animate-pulse">
-            <ChevronRight className="w-5 h-5" />
+          <div className="flex items-center bg-secondary/80 rounded-r-lg py-4 px-1.5 backdrop-blur-sm">
+            <ChevronRight className="w-4 h-4 text-primary animate-pulse" />
           </div>
         </div>
 
