@@ -86,12 +86,12 @@ export function ProfilePage() {
         </header>
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto px-6 py-8 pb-20">
+        <div className="max-w-4xl mx-auto px-6 py-8">
           <ActiveComponent />
         </div>
 
         {/* Footer */}
-        <footer className="fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-sm border-t border-border">
+        <footer className="mt-auto bg-background/80 backdrop-blur-sm border-t border-border">
           <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between text-xs text-muted-foreground">
             <span>Swipe right or hover left edge</span>
             <span>© {new Date().getFullYear()}</span>

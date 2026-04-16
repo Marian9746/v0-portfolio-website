@@ -5,7 +5,7 @@
 export const profileData = {
   // Personal Information
   personal: {
-    name: "Tu Nombre",
+    name: "Marian Díaz Romero",
     title: "Full Stack Developer",
     subtitle: "Software Engineer | Tech Enthusiast",
     email: "tu@email.com",
