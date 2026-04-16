@@ -6,31 +6,28 @@ export const profileData = {
   // Personal Information
   personal: {
     name: "Marian Díaz Romero",
-    title: "Full Stack Developer",
-    subtitle: "Software Engineer | Tech Enthusiast",
-    email: "tu@email.com",
-    location: "Madrid, España",
-    phone: "+34 600 000 000",
-    linkedin: "https://linkedin.com/in/tu-perfil",
-    github: "https://github.com/tu-usuario",
-    credly: "https://www.credly.com/users/tu-usuario",
+    title: "Systems Engineer | Technology Advisory consultant",
+    subtitle: "Systems Engineer | Technology Advisory consultant",
+    email: "mariandiazrom@gmail.com",
+    location: "Sydney, Australia",
+    phone: "+34 648 533 117",
+    linkedin: "https://www.linkedin.com/in/mariandiazromero/",
+    github: "https://github.com/Marian9746",
+    credly: "https://www.credly.com/users/marian-diaz-romero",
     portfolio: "https://tu-portfolio.com",
   },
 
   // About Me Section
   about: {
-    headline: "Building the future, one line of code at a time",
-    description: `Soy un desarrollador apasionado por la tecnología con más de X años de experiencia 
-    en el desarrollo de aplicaciones web y móviles. Me especializo en crear soluciones 
-    escalables y mantenibles que resuelven problemas reales.
-    
-    Mi enfoque se centra en escribir código limpio, seguir las mejores prácticas 
-    y mantenerme actualizado con las últimas tecnologías del mercado.`,
+    headline: "Bridging the gap between Complex Infrastructure and Business Value",
+    description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms. 
+    I specialize in designing scalable, secure, and efficient IT solutions that drive business success. With a passion for technology and a commitment to excellence, I thrive in dynamic environments where I can leverage my expertise to solve complex challenges and deliver impactful results.`,
+
     highlights: [
-      "Arquitectura de software escalable",
-      "Desarrollo Full Stack",
-      "Metodologías ágiles",
-      "Trabajo en equipo y liderazgo técnico",
+      "Enterprise Architecture (TOGAF® Certified)",
+      "AI Implementation & Automation:",
+      "IoT & Digital Twin Implementation",
+      "Cloud Migration & Modernization",
     ],
   },
 
@@ -38,48 +35,48 @@ export const profileData = {
   experience: [
     {
       id: 1,
-      role: "Senior Software Engineer",
-      company: "Empresa Tecnológica",
-      location: "Madrid, España",
-      period: "2022 - Presente",
+      role: "Tech Advisory Consultant - IoT & Digital Twins",
+      company: "NTT Data",
+      location: "Madrid, Spain",
+      period: "Apr 2025 - Present",
       description:
-        "Desarrollo de aplicaciones web escalables utilizando React, Node.js y AWS. Liderazgo técnico de un equipo de 5 desarrolladores.",
+        "Designing end-to-end IoT solutions for industrial environments using React, Node.js, and AWS.",
       achievements: [
-        "Reducción del tiempo de carga en un 40%",
-        "Implementación de CI/CD pipelines",
-        "Migración a arquitectura de microservicios",
+        "Reduced load time by 40%",
+        "Implemented CI/CD pipelines",
+        "Developed real-time monitoring applications",
       ],
-      technologies: ["React", "Node.js", "AWS", "PostgreSQL", "Docker"],
+      technologies: ["IoT", "Digital Twins", "Agentic AI", "Automation", "React", "Node.js", "AWS", "PostgreSQL", "Docker", "frontend", "backend"],
     },
     {
       id: 2,
-      role: "Full Stack Developer",
-      company: "Startup Innovadora",
-      location: "Barcelona, España",
-      period: "2020 - 2022",
+      role: "Technology Consulting Analyst - Cloud & Migration",
+      company: "Accenture",
+      location: "Madrid, Spain",
+      period: "Nov 2023 - Apr 2025",
       description:
-        "Desarrollo de la plataforma principal de la empresa desde cero, incluyendo frontend, backend y base de datos.",
+        "Specialized in Cloud Migration and legacy system modernization within the Financial and Retail sectors.",
       achievements: [
-        "Lanzamiento del MVP en 3 meses",
-        "Crecimiento de 0 a 10,000 usuarios",
-        "Integración con múltiples APIs de terceros",
+        "Automated data validation and migration processes using custom Python tools.",
+        "Implemented Infrastructure as Code (IaC) for cloud deployments.",
+        "Integrated DevOps practices (Git/CI-CD) into legacy Enterprise environments .",
       ],
-      technologies: ["Vue.js", "Python", "Django", "MongoDB", "Redis"],
+      technologies: [ "Python", "Cobol", "CI-CD", "Cloud Migration", "AWS", "Mainframe"],
     },
     {
       id: 3,
-      role: "Junior Developer",
-      company: "Consultora IT",
-      location: "Valencia, España",
-      period: "2018 - 2020",
+      role: "Digital MBA Collaborating Lecturer",
+      company: "ISDI Business School",
+      location: "Madrid, Spain",
+      period: "Jan 2026 - Mar 2026",
       description:
-        "Desarrollo de soluciones personalizadas para clientes de diversos sectores.",
+        "Delivering the Technology module for the Digital MBA, covering Digital Transformation and emerging innovation frameworks.",
       achievements: [
-        "Participación en más de 15 proyectos",
-        "Certificación en metodologías ágiles",
-        "Formación continua en nuevas tecnologías",
+        "Simplified complex technical concepts for business-oriented audiences.",
+        "Certified in Agile methodologies",
+        "Continuous learning in new technologies",
       ],
-      technologies: ["JavaScript", "PHP", "MySQL", "Laravel"],
+      technologies: ["AI Strategy", "Digital Transformation", "Business Innovation", "Cloud Ecosystem"],
     },
   ],
 
@@ -102,11 +99,14 @@ export const profileData = {
       "Communication",
       "Continuous Learning",
       "Adaptability",
+      "Team Leadership",
+      "Effective Communication",
+      "Continuous Learning",
     ],
     languages: [
-      { name: "Español", level: "Nativo" },
-      { name: "Inglés", level: "Profesional (C1)" },
-      { name: "Francés", level: "Básico (A2)" },
+      { name: "Spanish", level: "Native" },
+      { name: "English", level: "Professional (C1)" },
+      { name: "French", level: "Basic (A2)" },
     ],
   },
 
@@ -115,54 +115,62 @@ export const profileData = {
     {
       name: "Open Source",
       icon: "code",
-      description: "Contribuyo a proyectos de código abierto y mantengo mis propias librerías.",
+      description: "I contribute to open source projects and maintain my own libraries.",
     },
     {
-      name: "Gaming",
-      icon: "gamepad",
-      description: "Disfruto de videojuegos estratégicos y de rol en mi tiempo libre.",
-    },
-    {
-      name: "Reading",
+      name: "Tech Education",
       icon: "book",
-      description: "Leo sobre tecnología, productividad y desarrollo personal.",
+      description: "Passion for mentoring and teaching emerging technologies.",
     },
     {
-      name: "Photography",
-      icon: "camera",
-      description: "Capturando momentos y paisajes con mi cámara.",
+      name: "Sports",
+      icon: "surfing",
+      description: " Practicing various sports to stay active and healthy.",
+    },
+    {
+      name: "Ski",
+      icon: "skiing",
+      description: "Enjoying skiing during the winter season.",
     },
     {
       name: "Fitness",
       icon: "dumbbell",
-      description: "Mantengo un estilo de vida activo con ejercicio regular.",
+      description: "Maintaining an active lifestyle with regular exercise.",
     },
     {
       name: "Travel",
       icon: "plane",
-      description: "Explorar nuevas culturas y lugares me inspira creativamente.",
+      description: "Travel and explore new cultures and places.",
     },
   ],
 
-  // Certifications (for Credly section)
+  // Certifications
+  // Use 'credlyUrl' for Credly badges or 'certificateUrl' for local PDFs
+  // For PDFs: save them in /public/certificates/ and use '/certificates/filename.pdf'
   certifications: [
     {
-      name: "AWS Solutions Architect",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      credlyUrl: "https://www.credly.com/badges/...",
+      name: "TOGAF® Enterprise Architecture Foundation",
+      issuer: "The Open Group",
+      date: "2025",
+      credlyUrl: "https://www.credly.com/badges/2c6936da-dc95-4fcf-b5c9-c221ee08e493",
     },
     {
-      name: "Professional Scrum Master",
-      issuer: "Scrum.org",
-      date: "2022",
-      credlyUrl: "https://www.credly.com/badges/...",
+      name: "Digital Cloud Transformation Program",
+      issuer: "ISDI Business School",
+      date: "2023",
+      certificateUrl: "/certificates/ISDI-diploma-mariandr.pdf", 
     },
     {
-      name: "Google Cloud Professional",
-      issuer: "Google",
+      name: "Micro Focus COBOL Fundamentals",
+      issuer: "AMC",
       date: "2023",
-      credlyUrl: "https://www.credly.com/badges/...",
+      certificateUrl: "/certificates/Certificate-AMC-MicroFocus.pdf",
+    },
+    {
+      name: "ALM01F - Application Lifecycle Management (ALM/QC)",
+      issuer: "VP Global Learning Services",
+      date: "2023",
+      certificateUrl: "/certificates/Certificate ALM01F.pdf", 
     },
   ],
 }
