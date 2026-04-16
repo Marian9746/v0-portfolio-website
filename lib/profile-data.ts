@@ -112,11 +112,7 @@ export const profileData = {
 
   // Hobbies Section
   hobbies: [
-    {
-      name: "Open Source",
-      icon: "code",
-      description: "I contribute to open source projects and maintain my own libraries.",
-    },
+
     {
       name: "Tech Education",
       icon: "book",
@@ -128,9 +124,9 @@ export const profileData = {
       description: " Practicing various sports to stay active and healthy.",
     },
     {
-      name: "Ski",
-      icon: "skiing",
-      description: "Enjoying skiing during the winter season.",
+      name: "Kayak",
+      icon: "kayak",
+      description: "Former Kayak Instructor during summer seasons.",
     },
     {
       name: "Fitness",
@@ -138,9 +134,14 @@ export const profileData = {
       description: "Maintaining an active lifestyle with regular exercise.",
     },
     {
-      name: "Travel",
-      icon: "plane",
-      description: "Travel and explore new cultures and places.",
+      name: "Piano",
+      icon: "piano",
+      description: "Completed Elemental Conservatory of Music (Piano)",
+    },
+    {
+      name: "Open Source",
+      icon: "code",
+      description: "I contribute to open source projects and maintain my own libraries.",
     },
   ],
 
