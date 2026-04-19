@@ -9,6 +9,10 @@ import {
   Camera,
   Dumbbell,
   Plane,
+  Waves,
+  Mountain,
+  Kayak,
+  Piano
 } from "lucide-react"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -18,6 +22,11 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   camera: Camera,
   dumbbell: Dumbbell,
   plane: Plane,
+  surfing: Waves,
+  skiing: Mountain,
+  kayak: Kayak,
+  piano: Piano,
+
 }
 
 export function HobbiesSection() {

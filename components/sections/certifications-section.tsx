@@ -22,39 +22,49 @@ export function CertificationsSection() {
 
       {/* Certifications Grid */}
       <div className="grid grid-cols-1 gap-4">
-        {certifications.map((cert, index) => (
-          <a
-            key={index}
-            href={cert.credlyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
-          >
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                <Award className="w-8 h-8 text-primary" />
-              </div>
-              <div className="flex-1 space-y-2">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {cert.name}
-                  </h3>
-                  <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+        {certifications.map((cert: any, index: number) => {
+          const certUrl = cert.credlyUrl || cert.certificateUrl
+          const isExternal = certUrl?.startsWith('http')
+          
+          return (
+            <a
+              key={index}
+              href={certUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <Award className="w-8 h-8 text-primary" />
                 </div>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <Building className="w-3.5 h-3.5" />
-                    {cert.issuer}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {cert.date}
-                  </span>
+                <div className="flex-1 space-y-2">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {cert.name}
+                    </h3>
+                    <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                  </div>
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1.5">
+                      <Building className="w-3.5 h-3.5" />
+                      {cert.issuer}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {cert.date}
+                    </span>
+                    {!isExternal && certUrl && (
+                      <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">
+                        PDF
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
-        ))}
+            </a>
+          )
+        })}
       </div>
 
       {/* Credly CTA */}

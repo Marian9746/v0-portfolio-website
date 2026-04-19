@@ -29,6 +29,11 @@ export function ProfilePage() {
     setIsMenuOpen(false)
   }, [])
 
+  const handleMenuToggle = useCallback((open: boolean) => {
+    console.log('ProfilePage: Menu state changing to:', open)
+    setIsMenuOpen(open)
+  }, [])
+
   const ActiveComponent = sectionComponents[activeSection] || AboutSection
 
   return (
@@ -43,7 +48,7 @@ export function ProfilePage() {
         transitionEasing: "ease",
       }}
       isOpen={isMenuOpen}
-      onOpenChange={setIsMenuOpen}
+      onOpenChange={handleMenuToggle}
       menuContent={
         <NavigationMenu activeSection={activeSection} onNavigate={handleNavigate} />
       }
@@ -63,9 +68,12 @@ export function ProfilePage() {
         <header className="sticky top-0 z-20 bg-background/80 backdrop-blur-sm border-b border-border">
           <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
             <button
-              onClick={() => setIsMenuOpen(true)}
+              onClick={() => {
+                console.log('Menu button clicked, current state:', isMenuOpen)
+                handleMenuToggle(!isMenuOpen)
+              }}
               className="p-2 -ml-2 rounded-lg hover:bg-secondary transition-colors"
-              aria-label="Open menu"
+              aria-label="Toggle menu"
             >
               <Menu className="w-5 h-5 text-foreground" />
             </button>
@@ -78,12 +86,12 @@ export function ProfilePage() {
         </header>
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto px-6 py-8 pb-20">
+        <div className="max-w-4xl mx-auto px-6 py-8">
           <ActiveComponent />
         </div>
 
         {/* Footer */}
-        <footer className="fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-sm border-t border-border">
+        <footer className="mt-auto bg-background/80 backdrop-blur-sm border-t border-border">
           <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between text-xs text-muted-foreground">
             <span>Swipe right or hover left edge</span>
             <span>© {new Date().getFullYear()}</span>

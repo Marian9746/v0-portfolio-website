@@ -3,41 +3,63 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Dark mode by default - Minimalist tech aesthetic */
+/* Modern light theme with dark menu - Inspired by Meny demo */
 :root {
-  --background: oklch(0.09 0.005 260);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.12 0.005 260);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.12 0.005 260);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.7 0.15 200);
-  --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.18 0.01 260);
-  --secondary-foreground: oklch(0.9 0 0);
-  --muted: oklch(0.2 0.01 260);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.7 0.15 200);
-  --accent-foreground: oklch(0.1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.22 0.01 260);
-  --input: oklch(0.22 0.01 260);
-  --ring: oklch(0.7 0.15 200);
-  --chart-1: oklch(0.7 0.15 200);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* Main content area - Light and clean */
+  --background: oklch(0.95 0.005 240);
+  --foreground: oklch(0.18 0.01 240);
+  
+  /* Menu/Card - Dark for contrast */
+  --card: oklch(0.20 0.015 240);
+  --card-foreground: oklch(0.95 0.005 240);
+  
+  /* Popovers */
+  --popover: oklch(0.97 0.005 240);
+  --popover-foreground: oklch(0.18 0.01 240);
+  
+  /* Primary color - Soft coral/rose (inspired by demo #c2575b) */
+  --primary: oklch(0.62 0.16 15);
+  --primary-foreground: oklch(0.98 0.005 15);
+  
+  /* Secondary - Subtle gray */
+  --secondary: oklch(0.88 0.01 240);
+  --secondary-foreground: oklch(0.25 0.015 240);
+  
+  /* Muted elements */
+  --muted: oklch(0.92 0.008 240);
+  --muted-foreground: oklch(0.50 0.01 240);
+  
+  /* Accent - Slightly brighter coral for emphasis */
+  --accent: oklch(0.68 0.18 20);
+  --accent-foreground: oklch(0.98 0.005 20);
+  
+  /* Destructive */
+  --destructive: oklch(0.58 0.20 25);
+  --destructive-foreground: oklch(0.98 0.005 25);
+  
+  /* Borders and inputs */
+  --border: oklch(0.85 0.01 240);
+  --input: oklch(0.90 0.01 240);
+  --ring: oklch(0.62 0.16 15);
+  
+  /* Charts - Soft palette */
+  --chart-1: oklch(0.62 0.16 15);
+  --chart-2: oklch(0.65 0.14 180);
+  --chart-3: oklch(0.60 0.12 270);
+  --chart-4: oklch(0.70 0.15 90);
+  --chart-5: oklch(0.68 0.14 330);
+  
   --radius: 0.5rem;
-  --sidebar: oklch(0.1 0.005 260);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.7 0.15 200);
-  --sidebar-primary-foreground: oklch(0.1 0 0);
-  --sidebar-accent: oklch(0.18 0.01 260);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.22 0.01 260);
-  --sidebar-ring: oklch(0.7 0.15 200);
+  
+  /* Sidebar/Menu - Dark for 3D effect */
+  --sidebar: oklch(0.20 0.015 240);
+  --sidebar-foreground: oklch(0.92 0.005 240);
+  --sidebar-primary: #d45666;
+  --sidebar-primary-foreground: oklch(0.98 0.005 15);
+  --sidebar-accent: oklch(0.25 0.015 240);
+  --sidebar-accent-foreground: oklch(0.92 0.005 240);
+  --sidebar-border: oklch(0.30 0.015 240);
+  --sidebar-ring: oklch(0.62 0.16 15);
 }
 
 @theme inline {
@@ -90,14 +112,17 @@
   }
 }
 
-/* Meny 3D Menu Styles */
+/* Meny 3D Menu Styles - Inspired by demo */
 .meny-wrapper {
   position: relative;
   width: 100%;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  background: oklch(0.05 0.005 260);
+  /* Dark textured background like demo */
+  background-color: #222;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2NkYGD4D8SMQAwGcAY2AbBKDBUAVuYCBQPd34sAAAAASUVORK5CYII=);
+  background-repeat: repeat;
   perspective: 800px;
 }
 
@@ -105,7 +130,9 @@
   box-sizing: border-box;
   backface-visibility: hidden;
   will-change: transform;
-  background: oklch(0.08 0.005 260);
+  /* Dark menu background for contrast */
+  background: #333;
+  box-shadow: 6px 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .meny-contents {
@@ -114,7 +141,8 @@
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  background: var(--background);
+  /* Light content area for strong contrast */
+  background: #f0f0f0;
   box-sizing: border-box;
   transform-style: preserve-3d;
   -webkit-overflow-scrolling: touch;
@@ -123,6 +151,12 @@
 
 .meny-cover {
   cursor: pointer;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.meny-active .meny-cover {
   pointer-events: auto;
 }
 
@@ -131,7 +165,7 @@
   opacity: 0 !important;
 }
 
-/* Hint arrow for menu */
+/* Hint arrow for menu - matches new color scheme */
 .meny-hint {
   position: fixed;
   left: 0;
@@ -139,7 +173,7 @@
   transform: translateY(-50%);
   z-index: 100;
   padding: 12px 6px;
-  background: oklch(0.15 0.01 260);
+  background: rgba(194, 87, 91, 0.8);
   border-radius: 0 8px 8px 0;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -157,20 +191,20 @@
 
 /* Custom scrollbar for webkit browsers */
 .meny-contents::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .meny-contents::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .meny-contents::-webkit-scrollbar-thumb {
-  background: oklch(0.3 0.01 260);
-  border-radius: 3px;
+  background: rgba(194, 87, 91, 0.3);
+  border-radius: 4px;
 }
 
 .meny-contents::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.4 0.01 260);
+  background: rgba(194, 87, 91, 0.5);
 }
 
 /* Animations */

@@ -18,28 +18,16 @@ export const metadata: Metadata = {
   description: 'Personal portfolio showcasing my experience, skills, and professional journey as a software engineer.',
   generator: 'v0.app',
   keywords: ['software engineer', 'developer', 'portfolio', 'full stack', 'react', 'typescript'],
-  authors: [{ name: 'Tu Nombre' }],
+  authors: [{ name: 'Marian Díaz Romero' }],
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/MD-favicon-5.png',
+    shortcut: '/MD-favicon-5.png',
+    apple: '/MD-favicon-5.png',
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0a0a0a',
+  themeColor: '#f0f0f0',
   width: 'device-width',
   initialScale: 1,
 }
