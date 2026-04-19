@@ -32,7 +32,7 @@ export function NavigationMenu({ activeSection, onNavigate }: NavigationMenuProp
     <div className="h-full flex flex-col bg-card text-card-foreground p-6 overflow-y-auto">
       {/* Profile Header */}
       <div className="mb-8 pb-6 border-b border-border">
-        <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-4 border-2 border-primary/30">
+        <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-4 mx-auto border-2 border-primary/30">
           <span className="text-2xl font-bold text-primary">
             {personal.name
               .split(" ")
@@ -40,12 +40,12 @@ export function NavigationMenu({ activeSection, onNavigate }: NavigationMenuProp
               .join("")}
           </span>
         </div>
-        <h2 className="text-xl font-bold text-foreground">{personal.name}</h2>
+        <h2 className="text-xl font-bold text-card-foreground">{personal.name}</h2>
         <p className="text-sm text-muted-foreground mt-1">{personal.title}</p>
       </div>
 
       {/* Navigation Items */}
-      <nav className="flex-1 space-y-1">
+      <nav className="flex-1 space-y-0.5">
         {navigationItems.map((item) => {
           const IconComponent = iconMap[item.icon as keyof typeof iconMap] || User
           const isActive = activeSection === item.id
@@ -54,14 +54,14 @@ export function NavigationMenu({ activeSection, onNavigate }: NavigationMenuProp
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200 ${
+              className={`w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm text-left transition-all duration-200 ${
                 isActive
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                  ? "bg-primary/90 text-primary-foreground"
+                  : "text-muted-foreground hover:bg-white/5 hover:text-card-foreground"
               }`}
             >
-              <IconComponent className="w-5 h-5" />
-              <span className="font-medium">{item.label}</span>
+              <IconComponent className="w-4 h-4" />
+              <span>{item.label}</span>
             </button>
           )
         })}

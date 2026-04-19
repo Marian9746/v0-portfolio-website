@@ -19,7 +19,7 @@ export const profileData = {
 
   // About Me Section
   about: {
-    headline: "Bridging the gap between Complex Infrastructure and Business Value",
+    headline: "Engineer • Curious • Athlete",
     description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms. 
     I specialize in designing scalable, secure, and efficient IT solutions that drive business success. With a passion for technology and a commitment to excellence, I thrive in dynamic environments where I can leverage my expertise to solve complex challenges and deliver impactful results.`,
 
@@ -57,9 +57,9 @@ export const profileData = {
       description:
         "Specialized in Cloud Migration and legacy system modernization within the Financial and Retail sectors.",
       achievements: [
-        "Automated data validation and migration processes using custom Python tools.",
+        "Automated 80% of data validation using Python.",
         "Implemented Infrastructure as Code (IaC) for cloud deployments.",
-        "Integrated DevOps practices (Git/CI-CD) into legacy Enterprise environments .",
+        "Implemented Git-based CI/CD in legacy systems.",
       ],
       technologies: [ "Python", "Cobol", "CI-CD", "Cloud Migration", "AWS", "Mainframe"],
     },
@@ -73,8 +73,9 @@ export const profileData = {
         "Delivering the Technology module for the Digital MBA, covering Digital Transformation and emerging innovation frameworks.",
       achievements: [
         "Simplified complex technical concepts for business-oriented audiences.",
-        "Certified in Agile methodologies",
-        "Continuous learning in new technologies",
+        "Mentored final student projects from concept to MVP",
+        "Delivered Digital Twin & IoT modules 100% in English",
+        "Adapted complex IoT architectures for business use-cases",
       ],
       technologies: ["AI Strategy", "Digital Transformation", "Business Innovation", "Cloud Ecosystem"],
     },
@@ -181,6 +182,6 @@ export const navigationItems = [
   { id: "about", label: "About Me", icon: "user" },
   { id: "experience", label: "Experience", icon: "briefcase" },
   { id: "skills", label: "Skills", icon: "zap" },
-  { id: "hobbies", label: "Hobbies", icon: "heart" },
   { id: "certifications", label: "Certifications", icon: "award" },
+  { id: "hobbies", label: "Hobbies", icon: "heart" },
 ]
