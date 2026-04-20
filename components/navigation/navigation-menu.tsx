@@ -10,6 +10,7 @@ import {
   Linkedin,
   Github,
   Mail,
+  FileText,
 } from "lucide-react"
 
 interface NavigationMenuProps {
@@ -67,8 +68,19 @@ export function NavigationMenu({ activeSection, onNavigate }: NavigationMenuProp
         })}
       </nav>
 
+      {/* CV Request Button */}
+      <div className="mt-auto pt-4">
+        <a
+          href={`mailto:${personal.email}?subject=CV Request&body=Hi Marian,%0D%0A%0D%0AI would like to request your CV for review.%0D%0A%0D%0AThank you!%0D%0A%0D%0ABest regards`}
+          className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground rounded-lg transition-all duration-200"
+        >
+          <FileText className="w-4 h-4" />
+          <span>Request my CV</span>
+        </a>
+      </div>
+
       {/* Social Links */}
-      <div className="mt-8 pt-6 border-t border-border">
+      <div className="mt-6 pt-6 border-t border-border">
         <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
           Connect
         </p>
@@ -108,7 +120,7 @@ export function NavigationMenu({ activeSection, onNavigate }: NavigationMenuProp
       </div>
 
       {/* Hint */}
-      <p className="mt-6 text-xs text-muted-foreground text-center opacity-60">
+      <p className="mt-4 text-xs text-muted-foreground text-center opacity-60">
         Click outside or swipe to close
       </p>
     </div>
