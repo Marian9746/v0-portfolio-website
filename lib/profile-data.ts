@@ -19,9 +19,9 @@ export const profileData = {
 
   // About Me Section
   about: {
-    headline: "Engineer • Curious • Athlete",
+    headline: "Engineer by profession, curious by nature. 👋",
     description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms. 
-    I specialize in designing scalable, secure, and efficient IT solutions that drive business success. With a passion for technology and a commitment to excellence, I thrive in dynamic environments where I can leverage my expertise to solve complex challenges and deliver impactful results.`,
+    I’ve always been fascinated by how technology can solve real-world problems. I love the fact that tech allows us to achieve things we once thought were impossible; in a world that never stops evolving, I’m thrilled to be part of that change.`,
 
     highlights: [
       "Enterprise Architecture (TOGAF® Certified)",
@@ -84,14 +84,15 @@ export const profileData = {
   // Skills Section
   skills: {
     technical: [
-      { name: "JavaScript/TypeScript", level: 95 },
+      { name: "Python", level: 95 },
+      { name: "JavaScript/TypeScript", level: 80 },
       { name: "React/Next.js", level: 90 },
       { name: "Node.js", level: 85 },
-      { name: "Python", level: 80 },
-      { name: "SQL/NoSQL Databases", level: 85 },
+      { name: "SQL/NoSQL Databases", level: 80 },
       { name: "AWS/Cloud Services", level: 75 },
-      { name: "Docker/Kubernetes", level: 70 },
+      { name: "Docker/Kubernetes", level: 80 },
       { name: "Git/CI-CD", level: 90 },
+      { name: "AI-Agents", level: 85 },
     ],
     soft: [
       "Problem Solving",
@@ -102,7 +103,9 @@ export const profileData = {
       "Adaptability",
       "Team Leadership",
       "Effective Communication",
-      "Continuous Learning",
+      "Frontend & 3D Visualization",
+      "Digital Transformation Strategy", 
+      "Enterprise Architecture",
     ],
     languages: [
       { name: "Spanish", level: "Native" },
