@@ -4,6 +4,7 @@ import { navigationItems, profileData } from "@/lib/profile-data"
 import {
   User,
   Briefcase,
+  GraduationCap,
   Zap,
   Heart,
   Award,
@@ -21,6 +22,7 @@ interface NavigationMenuProps {
 const iconMap = {
   user: User,
   briefcase: Briefcase,
+  graduation: GraduationCap,
   zap: Zap,
   heart: Heart,
   award: Award,

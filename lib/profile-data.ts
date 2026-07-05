@@ -81,6 +81,62 @@ export const profileData = {
     },
   ],
 
+  // Education Section
+  education: [
+    {
+      id: 1,
+      degree: "Master’s Degree in Telecommunication Engineering",
+      institution: "Comillas Pontificia University, ICAI",
+      location: "Madrid, Spain",
+      period: "Sep 2021 – Jun 2023",
+      description:
+        "Focused on advanced telecommunications, systems engineering, and digital innovation strategies.",
+      highlights: [
+        "Strengthened expertise in network engineering, digital systems, and technology strategy.",
+        "Completed the program with a strong academic foundation in engineering and architecture principles.",
+      ],
+    },
+    {
+      id: 2,
+      degree: "Exchange Program",
+      institution: "Universidad Pontificia Católica de Chile",
+      location: "Santiago, Chile",
+      period: "Jan 2023 – Jul 2023",
+      description:
+        "Academic exchange experience that broadened my international perspective and cross-cultural collaboration skills.",
+      highlights: [
+        "Expanded academic exposure in a different engineering and research environment.",
+        "Built global connections and adapted to an international academic setting.",
+      ],
+    },
+    {
+      id: 3,
+      degree: "Bachelor’s Degree in Telecommunication Engineering",
+      institution: "ETSIIT",
+      location: "Granada, Spain",
+      period: "Sep 2017 – Jun 2021",
+      description:
+        "Completed a comprehensive engineering degree with a strong base in telecommunications, systems, and applied technology.",
+      highlights: [
+        "Developed solid knowledge in communications systems, software, and engineering fundamentals.",
+        "Built the technical foundation that later supported my consulting and digital transformation work.",
+      ],
+    },
+    {
+      id: 4,
+      degree: "Exchange Program",
+      institution: "Linköping University",
+      location: "Linköping, Sweden",
+      period: "Sep 2019 – Jul 2020",
+      description:
+        "International exchange that enriched my studies with a different academic and cultural perspective.",
+      highlights: [
+        "Strengthened adaptability and international collaboration in a European academic environment.",
+        "Gained exposure to new technical and academic approaches.",
+      ],
+    },
+  ],
+
   // Skills Section
   skills: {
     technical: [
@@ -184,6 +240,7 @@ export const profileData = {
 export const navigationItems = [
   { id: "about", label: "About Me", icon: "user" },
   { id: "experience", label: "Experience", icon: "briefcase" },
+  { id: "education", label: "Education", icon: "graduation" },
   { id: "skills", label: "Skills", icon: "zap" },
   { id: "certifications", label: "Certifications", icon: "award" },
   { id: "hobbies", label: "Hobbies", icon: "heart" },

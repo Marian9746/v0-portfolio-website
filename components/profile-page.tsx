@@ -5,6 +5,7 @@ import { Meny } from "@/components/meny/meny"
 import { NavigationMenu } from "@/components/navigation/navigation-menu"
 import { AboutSection } from "@/components/sections/about-section"
 import { ExperienceSection } from "@/components/sections/experience-section"
+import { EducationSection } from "@/components/sections/education-section"
 import { SkillsSection } from "@/components/sections/skills-section"
 import { HobbiesSection } from "@/components/sections/hobbies-section"
 import { CertificationsSection } from "@/components/sections/certifications-section"
@@ -14,6 +15,7 @@ import { Menu, ChevronRight } from "lucide-react"
 const sectionComponents: Record<string, React.ComponentType> = {
   about: AboutSection,
   experience: ExperienceSection,
+  education: EducationSection,
   skills: SkillsSection,
   hobbies: HobbiesSection,
   certifications: CertificationsSection,
