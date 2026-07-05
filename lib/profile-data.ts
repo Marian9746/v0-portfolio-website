@@ -25,7 +25,7 @@ export const profileData = {
 
     highlights: [
       "Enterprise Architecture (TOGAF® Certified)",
-      "AI Implementation & Automation:",
+      "AI Implementation & Automation",
       "IoT & Digital Twin Implementation",
       "Cloud Migration & Modernization",
     ],
