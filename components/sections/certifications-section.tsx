@@ -2,73 +2,76 @@
 
 import { profileData } from "@/lib/profile-data"
 import { Award, ExternalLink, Calendar, Building } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 
 export function CertificationsSection() {
   const { certifications, personal } = profileData
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <section id="certifications" className="scroll-mt-24 py-20 sm:py-28 px-6">
+      <div className="max-w-3xl mx-auto space-y-8">
       {/* Header */}
-      <div className="space-y-2">
+      <Reveal className="space-y-2">
         <div className="flex items-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
           <Award className="w-4 h-4" />
           <span>Certifications</span>
         </div>
-        <h2 className="text-3xl font-bold text-foreground">Professional Credentials</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Professional Credentials</h2>
         <p className="text-muted-foreground">
           Verified certifications and professional achievements
         </p>
-      </div>
+      </Reveal>
 
       {/* Certifications Grid */}
-      <div className="grid grid-cols-1 gap-4">
+      <RevealGroup className="grid grid-cols-1 gap-4">
         {certifications.map((cert: any, index: number) => {
           const certUrl = cert.credlyUrl || cert.certificateUrl
           const isExternal = certUrl?.startsWith('http')
           
           return (
-            <a
-              key={index}
-              href={certUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
-            >
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                  <Award className="w-8 h-8 text-primary" />
-                </div>
-                <div className="flex-1 space-y-2">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {cert.name}
-                    </h3>
-                    <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+            <RevealItem key={index}>
+              <a
+                href={certUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                    <Award className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      <Building className="w-3.5 h-3.5" />
-                      {cert.issuer}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {cert.date}
-                    </span>
-                    {!isExternal && certUrl && (
-                      <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">
-                        PDF
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {cert.name}
+                      </h3>
+                      <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                    </div>
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                      <span className="flex items-center gap-1.5">
+                        <Building className="w-3.5 h-3.5" />
+                        {cert.issuer}
                       </span>
-                    )}
+                      <span className="flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5" />
+                        {cert.date}
+                      </span>
+                      {!isExternal && certUrl && (
+                        <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">
+                          PDF
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </RevealItem>
           )
         })}
-      </div>
+      </RevealGroup>
 
       {/* Credly CTA */}
-      <div className="p-6 bg-primary/5 rounded-lg border border-primary/20 space-y-4">
+      <Reveal className="p-6 bg-primary/5 rounded-lg border border-primary/20 space-y-4">
         <div className="space-y-2">
           <h3 className="font-semibold text-foreground">View All Credentials</h3>
           <p className="text-sm text-muted-foreground">
@@ -86,23 +89,24 @@ export function CertificationsSection() {
           <span>View Credly Profile</span>
           <ExternalLink className="w-4 h-4" />
         </a>
-      </div>
+      </Reveal>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4">
-        <div className="p-4 bg-secondary/30 rounded-lg text-center border border-border/50">
+      <RevealGroup className="grid grid-cols-3 gap-4">
+        <RevealItem className="p-4 bg-secondary/30 rounded-lg text-center border border-border/50">
           <p className="text-2xl font-bold text-primary">{certifications.length}+</p>
           <p className="text-sm text-muted-foreground">Certifications</p>
-        </div>
-        <div className="p-4 bg-secondary/30 rounded-lg text-center border border-border/50">
+        </RevealItem>
+        <RevealItem className="p-4 bg-secondary/30 rounded-lg text-center border border-border/50">
           <p className="text-2xl font-bold text-primary">100%</p>
           <p className="text-sm text-muted-foreground">Verified</p>
-        </div>
-        <div className="p-4 bg-secondary/30 rounded-lg text-center border border-border/50">
+        </RevealItem>
+        <RevealItem className="p-4 bg-secondary/30 rounded-lg text-center border border-border/50">
           <p className="text-2xl font-bold text-primary">Active</p>
           <p className="text-sm text-muted-foreground">Status</p>
-        </div>
+        </RevealItem>
+      </RevealGroup>
       </div>
-    </div>
+    </section>
   )
 }

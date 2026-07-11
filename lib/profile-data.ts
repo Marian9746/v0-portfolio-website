@@ -8,6 +8,7 @@ export const profileData = {
     name: "Marian Díaz Romero",
     title: "Systems Engineer | Technology Advisory consultant",
     subtitle: "Systems Engineer | Technology Advisory consultant",
+    tagline: "Engineering cloud, AI and digital-twin systems that turn ambiguous problems into shipped products.",
     email: "mariandiazrom@gmail.com",
     location: "Sydney, Australia",
     phone: "+34 648 533 117",
@@ -231,17 +232,61 @@ export const profileData = {
       name: "ALM01F - Application Lifecycle Management (ALM/QC)",
       issuer: "VP Global Learning Services",
       date: "2023",
-      certificateUrl: "/certificates/Certificate ALM01F.pdf", 
+      certificateUrl: "/certificates/Certificate ALM01F.pdf",
     },
   ],
+
+  // Projects Section
+  // PLACEHOLDER DATA — replace with real projects (name, description, tech, links, image)
+  projects: [
+    {
+      id: 1,
+      name: "Project Placeholder One",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A short placeholder description of what this project does, the problem it solves, and the impact it had.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+      image: "/projects/placeholder-1.svg",
+      links: { github: "https://github.com/Marian9746", live: "" },
+    },
+    {
+      id: 2,
+      name: "Project Placeholder Two",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Placeholder copy describing the architecture and outcome.",
+      tech: ["Python", "AWS", "Docker"],
+      image: "/projects/placeholder-2.svg",
+      links: { github: "https://github.com/Marian9746", live: "" },
+    },
+    {
+      id: 3,
+      name: "Project Placeholder Three",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder copy for a third representative project and its core capabilities.",
+      tech: ["IoT", "React", "Node.js"],
+      image: "/projects/placeholder-3.svg",
+      links: { github: "https://github.com/Marian9746", live: "" },
+    },
+  ],
+
+  // Recommendation Letter Section
+  // PLACEHOLDER DATA — replace body/fromName/fromRole with the real letter
+  recommendationLetter: {
+    fromName: "Placeholder Referee Name",
+    fromRole: "Engineering Manager, Placeholder Company",
+    date: "2026",
+    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+  },
 }
 
-// Navigation items for the menu
+// Anchor navigation items for the sticky one-page nav.
+// Each id must match a <section id="..."> exactly.
 export const navigationItems = [
-  { id: "about", label: "About Me", icon: "user" },
-  { id: "experience", label: "Experience", icon: "briefcase" },
-  { id: "education", label: "Education", icon: "graduation" },
-  { id: "skills", label: "Skills", icon: "zap" },
-  { id: "certifications", label: "Certifications", icon: "award" },
-  { id: "hobbies", label: "Hobbies", icon: "heart" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "projects", label: "Projects" },
+  { id: "recommendation", label: "Recommendation" },
+  { id: "contact", label: "Contact" },
 ]

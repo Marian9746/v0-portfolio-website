@@ -14,6 +14,7 @@ import {
   Kayak,
   Piano
 } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   code: Code,
@@ -33,26 +34,27 @@ export function HobbiesSection() {
   const { hobbies } = profileData
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <section id="hobbies" className="scroll-mt-24 py-20 sm:py-28 px-6">
+      <div className="max-w-3xl mx-auto space-y-8">
       {/* Header */}
-      <div className="space-y-2">
+      <Reveal className="space-y-2">
         <div className="flex items-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
           <Heart className="w-4 h-4" />
           <span>Hobbies & Interests</span>
         </div>
-        <h2 className="text-3xl font-bold text-foreground">Beyond the Code</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Beyond the Code</h2>
         <p className="text-muted-foreground">
           What keeps me inspired and balanced outside of work
         </p>
-      </div>
+      </Reveal>
 
       {/* Hobbies Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {hobbies.map((hobby, index) => {
           const IconComponent = iconMap[hobby.icon] || Heart
 
           return (
-            <div
+            <RevealItem
               key={index}
               className="group p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
             >
@@ -67,18 +69,19 @@ export function HobbiesSection() {
                   </p>
                 </div>
               </div>
-            </div>
+            </RevealItem>
           )
         })}
-      </div>
+      </RevealGroup>
 
       {/* Fun Fact */}
-      <div className="p-6 bg-primary/5 rounded-lg border border-primary/20">
+      <Reveal className="p-6 bg-primary/5 rounded-lg border border-primary/20">
         <p className="text-sm text-muted-foreground italic">
           &ldquo;I believe that diverse interests fuel creativity. My hobbies help me approach
           problems from different angles and bring fresh perspectives to my work.&rdquo;
         </p>
+      </Reveal>
       </div>
-    </div>
+    </section>
   )
 }

@@ -2,27 +2,29 @@
 
 import { profileData } from "@/lib/profile-data"
 import { GraduationCap, MapPin, Calendar, BookOpen } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 
 export function EducationSection() {
   const { education } = profileData
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <section id="education" className="scroll-mt-24 py-20 sm:py-28 px-6">
+      <div className="max-w-3xl mx-auto space-y-8">
       {/* Header */}
-      <div className="space-y-2">
+      <Reveal className="space-y-2">
         <div className="flex items-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
           <GraduationCap className="w-4 h-4" />
           <span>Education</span>
         </div>
-        <h2 className="text-3xl font-bold text-foreground">Academic Background</h2>
-      </div>
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Academic Background</h2>
+      </Reveal>
 
       {/* Timeline */}
-      <div className="relative space-y-8">
+      <RevealGroup className="relative space-y-8">
         <div className="absolute left-3 top-2 bottom-2 w-px bg-border" />
 
         {education.map((item) => (
-          <div key={item.id} className="relative pl-10">
+          <RevealItem key={item.id} className="relative pl-10">
             <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
               <GraduationCap className="w-3.5 h-3.5 text-primary-foreground" />
             </div>
@@ -65,9 +67,10 @@ export function EducationSection() {
                 </div>
               ) : null}
             </div>
-          </div>
+          </RevealItem>
         ))}
+      </RevealGroup>
       </div>
-    </div>
+    </section>
   )
 }

@@ -2,28 +2,30 @@
 
 import { profileData } from "@/lib/profile-data"
 import { Briefcase, MapPin, Calendar, CheckCircle } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 
 export function ExperienceSection() {
   const { experience } = profileData
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <section id="experience" className="scroll-mt-24 py-20 sm:py-28 px-6">
+      <div className="max-w-3xl mx-auto space-y-8">
       {/* Header */}
-      <div className="space-y-2">
+      <Reveal className="space-y-2">
         <div className="flex items-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
           <Briefcase className="w-4 h-4" />
           <span>Experience</span>
         </div>
-        <h2 className="text-3xl font-bold text-foreground">Professional Journey</h2>
-      </div>
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Professional Journey</h2>
+      </Reveal>
 
       {/* Timeline */}
-      <div className="relative space-y-8">
+      <RevealGroup className="relative space-y-8">
         {/* Timeline line */}
         <div className="absolute left-3 top-2 bottom-2 w-px bg-border" />
 
         {experience.map((job, index) => (
-          <div key={job.id} className="relative pl-10">
+          <RevealItem key={job.id} className="relative pl-10">
             {/* Timeline dot */}
             <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
               <div className="w-2 h-2 rounded-full bg-primary-foreground" />
@@ -78,9 +80,10 @@ export function ExperienceSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </RevealItem>
         ))}
+      </RevealGroup>
       </div>
-    </div>
+    </section>
   )
 }
