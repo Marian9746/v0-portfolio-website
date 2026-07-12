@@ -11,8 +11,21 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative"
+      className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative isolate overflow-hidden"
     >
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 opacity-[0.5]"
+        style={{
+          backgroundImage: "radial-gradient(circle, var(--foreground) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          maskImage:
+            "radial-gradient(ellipse 60% 55% at 50% 40%, black 0%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 60% 55% at 50% 40%, black 0%, transparent 80%)",
+        }}
+      />
+
       <motion.div
         initial="hidden"
         animate="visible"
@@ -43,13 +56,13 @@ export function HeroSection() {
         <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-4 mt-4">
           <a
             href="#projects"
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
           >
             View my work
           </a>
           <a
             href="#contact"
-            className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
+            className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-secondary/70 hover:scale-[1.03] hover:shadow-md active:scale-[0.98]"
           >
             Get in touch
           </a>

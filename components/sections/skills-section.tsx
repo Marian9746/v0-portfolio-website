@@ -63,7 +63,7 @@ export function SkillsSection() {
               return (
                 <RevealItem
                   key={skill.name}
-                  className="flex items-center gap-3 p-4 bg-secondary/30 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
+                  className="flex items-center gap-3 p-4 bg-secondary/60 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
                 >
                   <div className="p-2 bg-primary/10 rounded-md shrink-0">
                     <Icon className="w-4 h-4 text-primary" />

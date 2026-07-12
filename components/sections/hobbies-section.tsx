@@ -56,7 +56,7 @@ export function HobbiesSection() {
           return (
             <RevealItem
               key={index}
-              className="group p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
+              className="group p-5 bg-secondary/60 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">

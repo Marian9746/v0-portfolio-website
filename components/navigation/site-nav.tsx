@@ -44,7 +44,7 @@ export function SiteNav() {
           <ThemeToggle />
           <a
             href={cvMailto}
-            className="flex items-center gap-2 px-3 py-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground rounded-lg transition-colors text-sm"
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-primary/90 hover:scale-[1.03] hover:shadow-md active:scale-[0.98] text-sm"
           >
             <FileText className="w-4 h-4" />
             <span>Request CV</span>
@@ -92,7 +92,7 @@ export function SiteNav() {
               <a
                 href={cvMailto}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 mt-2 px-3 py-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground rounded-lg transition-colors text-sm"
+                className="flex items-center gap-2 mt-2 px-3 py-2 bg-primary text-primary-foreground font-medium rounded-lg transition-all duration-200 hover:bg-primary/90 active:scale-[0.98] text-sm"
               >
                 <FileText className="w-4 h-4" />
                 <span>Request my CV</span>

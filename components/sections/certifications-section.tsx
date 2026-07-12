@@ -34,7 +34,7 @@ export function CertificationsSection() {
                 href={certUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
+                className="group block p-5 bg-secondary/60 rounded-lg border border-border/50 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
@@ -83,7 +83,7 @@ export function CertificationsSection() {
           href={personal.credly}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
         >
           <Award className="w-5 h-5" />
           <span>View Credly Profile</span>
@@ -93,15 +93,15 @@ export function CertificationsSection() {
 
       {/* Stats */}
       <RevealGroup className="grid grid-cols-3 gap-4">
-        <RevealItem className="p-4 bg-secondary/30 rounded-lg text-center border border-border/50">
+        <RevealItem className="p-4 bg-secondary/60 rounded-lg text-center border border-border/50">
           <p className="text-2xl font-bold text-primary">{certifications.length}+</p>
           <p className="text-sm text-muted-foreground">Certifications</p>
         </RevealItem>
-        <RevealItem className="p-4 bg-secondary/30 rounded-lg text-center border border-border/50">
+        <RevealItem className="p-4 bg-secondary/60 rounded-lg text-center border border-border/50">
           <p className="text-2xl font-bold text-primary">100%</p>
           <p className="text-sm text-muted-foreground">Verified</p>
         </RevealItem>
-        <RevealItem className="p-4 bg-secondary/30 rounded-lg text-center border border-border/50">
+        <RevealItem className="p-4 bg-secondary/60 rounded-lg text-center border border-border/50">
           <p className="text-2xl font-bold text-primary">Active</p>
           <p className="text-sm text-muted-foreground">Status</p>
         </RevealItem>

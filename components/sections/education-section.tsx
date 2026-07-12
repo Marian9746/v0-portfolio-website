@@ -29,7 +29,7 @@ export function EducationSection() {
               <GraduationCap className="w-3.5 h-3.5 text-primary-foreground" />
             </div>
 
-            <div className="space-y-4 p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-border transition-colors">
+            <div className="space-y-4 p-5 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
               <div className="space-y-1">
                 <h3 className="text-xl font-semibold text-foreground">{item.degree}</h3>
                 <p className="text-primary font-medium">{item.institution}</p>

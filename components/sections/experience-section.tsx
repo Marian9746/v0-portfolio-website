@@ -31,17 +31,19 @@ export function ExperienceSection() {
               <div className="w-2 h-2 rounded-full bg-primary-foreground" />
             </div>
 
-            <div className="space-y-4 p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-border transition-colors">
+            <div className="space-y-4 p-5 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
               {/* Header */}
-              <div className="space-y-1">
-                <h3 className="text-xl font-semibold text-foreground">{job.role}</h3>
-                <p className="text-primary font-medium">{job.company}</p>
-                <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1 space-y-1">
+                  <h3 className="text-xl font-semibold text-foreground">{job.role}</h3>
+                  <p className="text-primary font-medium">{job.company}</p>
+                </div>
+                <div className="shrink-0 text-right space-y-1 text-xs text-muted-foreground">
+                  <span className="flex items-center justify-end gap-1">
                     <Calendar className="w-3.5 h-3.5" />
                     {job.period}
                   </span>
-                  <span className="flex items-center gap-1">
+                  <span className="flex items-center justify-end gap-1">
                     <MapPin className="w-3.5 h-3.5" />
                     {job.location}
                   </span>

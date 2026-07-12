@@ -20,7 +20,7 @@ export const profileData = {
 
   // About Me Section
   about: {
-    headline: "Engineer by profession, curious by nature. 👋",
+    headline: "Engineer by profession, curious by nature. ",
     description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms. 
     I’ve always been fascinated by how technology can solve real-world problems. I love the fact that tech allows us to achieve things we once thought were impossible; in a world that never stops evolving, I’m thrilled to be part of that change.`,
 

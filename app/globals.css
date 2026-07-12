@@ -10,11 +10,11 @@
   --foreground: oklch(0.18 0.01 240);
 
   /* Card surfaces */
-  --card: #f1f2f2;
+  --card: #e7e8e8;
   --card-foreground: oklch(0.18 0.01 240);
 
   /* Popovers */
-  --popover: #f1f2f2;
+  --popover: #e7e8e8;
   --popover-foreground: oklch(0.18 0.01 240);
 
   /* Primary color - Soft coral/rose (inspired by demo #c2575b) */
@@ -22,7 +22,7 @@
   --primary-foreground: oklch(0.98 0.005 15);
 
   /* Secondary - Subtle gray */
-  --secondary: #f1f2f2;
+  --secondary: #e7e8e8;
   --secondary-foreground: oklch(0.25 0.015 240);
   
   /* Muted elements */
@@ -52,7 +52,7 @@
   --radius: 0.5rem;
 
   /* Sidebar (mobile nav panel) */
-  --sidebar: #f1f2f2;
+  --sidebar: #e7e8e8;
   --sidebar-foreground: oklch(0.18 0.01 240);
   --sidebar-primary: oklch(0.62 0.16 15);
   --sidebar-primary-foreground: oklch(0.98 0.005 15);
