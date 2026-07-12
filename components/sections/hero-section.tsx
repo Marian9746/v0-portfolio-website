@@ -28,7 +28,7 @@ export function HeroSection() {
 
         <motion.h1
           variants={fadeInUp}
-          className="text-5xl sm:text-7xl font-bold tracking-tight text-foreground text-balance"
+          className="text-5xl sm:text-7xl font-extrabold tracking-tight text-foreground text-balance"
         >
           {personal.name}
         </motion.h1>

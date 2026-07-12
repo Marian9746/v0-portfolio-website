@@ -6,23 +6,23 @@
 /* Modern light theme with dark menu - Inspired by Meny demo */
 :root {
   /* Main content area - Light and clean */
-  --background: oklch(0.95 0.005 240);
+  --background: #f9f9f9;
   --foreground: oklch(0.18 0.01 240);
-  
+
   /* Card surfaces */
-  --card: oklch(0.98 0.004 240);
+  --card: #f1f2f2;
   --card-foreground: oklch(0.18 0.01 240);
 
   /* Popovers */
-  --popover: oklch(0.97 0.005 240);
+  --popover: #f1f2f2;
   --popover-foreground: oklch(0.18 0.01 240);
-  
+
   /* Primary color - Soft coral/rose (inspired by demo #c2575b) */
   --primary: oklch(0.62 0.16 15);
   --primary-foreground: oklch(0.98 0.005 15);
-  
+
   /* Secondary - Subtle gray */
-  --secondary: oklch(0.88 0.01 240);
+  --secondary: #f1f2f2;
   --secondary-foreground: oklch(0.25 0.015 240);
   
   /* Muted elements */
@@ -52,7 +52,7 @@
   --radius: 0.5rem;
 
   /* Sidebar (mobile nav panel) */
-  --sidebar: oklch(0.98 0.004 240);
+  --sidebar: #f1f2f2;
   --sidebar-foreground: oklch(0.18 0.01 240);
   --sidebar-primary: oklch(0.62 0.16 15);
   --sidebar-primary-foreground: oklch(0.98 0.005 15);
