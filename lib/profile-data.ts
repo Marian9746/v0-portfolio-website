@@ -268,19 +268,36 @@ export const profileData = {
     },
   ],
 
-  // Recommendation Letter Section
-  recommendationLetter: {
-    fromName: "David Díez Cebollero",
-    fromRole: "Digital Technology Director — NTT DATA Spain",
-    date: "Madrid, 1 July 2026",
-    body: `What I value most about Marian is her autonomy and reliability. She is the kind of person you can hand an ambitious, poorly defined problem to, confident it will come back solved, documented, and better framed than it started. She doesn't need constant oversight; she needs context, and from there she moves forward with sound judgement and a consistent commitment to the quality of what she delivers.
+  // Recommendation Letters Section
+  recommendationLetters: [
+    {
+      fromName: "David Díez Cebollero",
+      fromRole: "Digital Technology Director — NTT DATA Spain",
+      linkedin: "https://www.linkedin.com/in/daviddiezcebollero/",
+      date: "Madrid, 1 July 2026",
+      body: `What I value most about Marian is her autonomy and reliability. She is the kind of person you can hand an ambitious, poorly defined problem to, confident it will come back solved, documented, and better framed than it started. She doesn't need constant oversight; she needs context, and from there she moves forward with sound judgement and a consistent commitment to the quality of what she delivers.
 
 I recommend Marian with complete confidence. Whoever hires her will gain a solid, dependable professional with tremendous room to grow.`,
-    files: {
-      en: "/certificates/recommendation_letter_marian_diaz_en.pdf",
-      es: "/certificates/carta_recomendacion_marian_diaz_es.pdf",
+      files: {
+        en: "/certificates/recommendation_letter_marian_diaz_en.pdf",
+        es: "/certificates/carta_recomendacion_marian_diaz_es.pdf",
+      },
     },
-  },
+    {
+      // PLACEHOLDER — replace with the real second recommendation letter
+      fromName: "Placeholder Referee Name",
+      fromRole: "Job Title, Company",
+      linkedin: "",
+      date: "2026",
+      body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      files: {
+        en: "",
+        es: "",
+      },
+    },
+  ],
 }
 
 // Anchor navigation items for the sticky one-page nav.

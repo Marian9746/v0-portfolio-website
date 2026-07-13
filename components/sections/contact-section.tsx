@@ -15,7 +15,7 @@ export function ContactSection() {
             <MessageCircle className="w-4 h-4" />
             <span>Contact</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Let&apos;s Build Something</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Let&apos;s Talk</h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
             Open to new opportunities, collaborations, and conversations about technology.
             Reach out through any of these channels.

@@ -10,7 +10,7 @@ export function ExperienceSection() {
 
   return (
     <section id="experience" className="scroll-mt-24 py-20 sm:py-28 px-6">
-      <div className="max-w-3xl mx-auto space-y-8">
+      <div className="max-w-5xl mx-auto space-y-8">
       {/* Header */}
       <Reveal className="space-y-2">
         <div className="flex items-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
