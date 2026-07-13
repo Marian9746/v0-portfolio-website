@@ -29,12 +29,12 @@ export function RecommendationLetterSection() {
   return (
     <section id="recommendation" className="scroll-mt-24 py-20 sm:py-28 px-6">
       <div className="max-w-5xl mx-auto space-y-10">
-        <Reveal className="space-y-2">
-          <div className="flex items-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
+        <Reveal className="space-y-3">
+          <div className="flex items-center gap-2 text-muted-foreground/70 text-xs font-medium uppercase tracking-[0.15em]">
             <ScrollText className="w-4 h-4" />
             <span>Recommendation Letters</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">In Their Words</h2>
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">In Their Words</h2>
         </Reveal>
 
         <Reveal>
@@ -61,7 +61,7 @@ export function RecommendationLetterSection() {
                   className="bg-card border border-border/50 rounded-2xl p-8 sm:p-12 shadow-sm"
                 >
                   <Quote className="w-8 h-8 text-primary/30 mb-6" />
-                  <p className="text-card-foreground leading-relaxed whitespace-pre-line text-sm sm:text-base font-mono">
+                  <p className="text-card-foreground leading-relaxed whitespace-pre-line text-sm font-mono">
                     {letter.body}
                   </p>
                   <div className="mt-8 pt-6 border-t border-border/50 flex flex-wrap items-end justify-between gap-4">

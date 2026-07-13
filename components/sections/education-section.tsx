@@ -12,12 +12,12 @@ export function EducationSection() {
     <section id="education" className="scroll-mt-24 py-20 sm:py-28 px-6">
       <div className="max-w-5xl mx-auto space-y-8">
       {/* Header */}
-      <Reveal className="space-y-2">
-        <div className="flex items-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
+      <Reveal className="space-y-3">
+        <div className="flex items-center gap-2 text-muted-foreground/70 text-xs font-medium uppercase tracking-[0.15em]">
           <GraduationCap className="w-4 h-4" />
           <span>Education</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Academic Background</h2>
+        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">Academic Background</h2>
       </Reveal>
 
       {/* Timeline */}
@@ -36,7 +36,7 @@ export function EducationSection() {
                   <h3 className="text-xl font-semibold text-foreground">{item.degree}</h3>
                   <p className="text-primary font-medium">{item.institution}</p>
                 </div>
-                <div className="shrink-0 text-right space-y-1 text-xs text-muted-foreground">
+                <div className="shrink-0 text-right space-y-1 text-xs font-light text-muted-foreground">
                   <span className="flex items-center justify-end gap-1">
                     <Calendar className="w-3.5 h-3.5" />
                     {item.period}

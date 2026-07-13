@@ -34,21 +34,21 @@ export function HeroSection() {
       >
         <motion.span
           variants={fadeInUp}
-          className="text-sm uppercase tracking-[0.2em] text-muted-foreground"
+          className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/70"
         >
           {personal.title}
         </motion.span>
 
         <motion.h1
           variants={fadeInUp}
-          className="text-5xl sm:text-7xl font-extrabold tracking-tight text-foreground text-balance"
+          className="text-6xl sm:text-8xl font-black tracking-tight text-foreground text-balance"
         >
           {personal.name}
         </motion.h1>
 
         <motion.p
           variants={fadeInUp}
-          className="text-lg sm:text-xl text-muted-foreground max-w-xl text-balance leading-relaxed"
+          className="text-base sm:text-lg font-light text-muted-foreground max-w-xl text-balance leading-relaxed"
         >
           {personal.tagline}
         </motion.p>
@@ -77,7 +77,7 @@ export function HeroSection() {
         transition={{ delay: 0.8, duration: 0.6 }}
         className="absolute bottom-10 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
       >
-        <span className="text-xs uppercase tracking-wider">Scroll</span>
+        <span className="text-xs font-light uppercase tracking-wider">Scroll</span>
         <ArrowDown className="w-4 h-4 animate-bounce" />
       </motion.a>
     </section>

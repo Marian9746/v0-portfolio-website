@@ -32,7 +32,7 @@ export function SiteNav() {
                 "px-3 py-2 text-sm rounded-md transition-colors",
                 activeId === item.id
                   ? "text-primary font-medium"
-                  : "text-muted-foreground hover:text-foreground",
+                  : "text-muted-foreground hover:text-foreground font-light",
               )}
             >
               {item.label}

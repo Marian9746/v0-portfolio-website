@@ -11,12 +11,12 @@ export function ContactSection() {
     <section id="contact" className="scroll-mt-24 py-20 sm:py-28 px-6">
       <div className="max-w-3xl mx-auto text-center space-y-8">
         <Reveal className="space-y-3">
-          <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
+          <div className="flex items-center justify-center gap-2 text-muted-foreground/70 text-xs font-medium uppercase tracking-[0.15em]">
             <MessageCircle className="w-4 h-4" />
             <span>Contact</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Let&apos;s Talk</h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">Let&apos;s Talk</h2>
+          <p className="text-muted-foreground max-w-lg mx-auto text-sm">
             Open to new opportunities, collaborations, and conversations about technology.
             Reach out through any of these channels.
           </p>
