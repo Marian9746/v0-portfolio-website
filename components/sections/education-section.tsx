@@ -1,7 +1,7 @@
 "use client"
 
 import { profileData } from "@/lib/profile-data"
-import { GraduationCap, MapPin, Calendar, BookOpen } from "lucide-react"
+import { GraduationCap, MapPin, Calendar, BookOpen, CornerDownRight } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 import { Disclosure } from "@/components/motion/disclosure"
 
@@ -21,7 +21,7 @@ export function EducationSection() {
       </Reveal>
 
       {/* Timeline */}
-      <RevealGroup className="relative space-y-8">
+      <RevealGroup className="relative space-y-6">
         <div className="absolute left-3 top-2 bottom-2 w-px bg-border" />
 
         {education.map((item) => (
@@ -30,7 +30,7 @@ export function EducationSection() {
               <GraduationCap className="w-3.5 h-3.5 text-primary-foreground" />
             </div>
 
-            <div className="space-y-4 p-5 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
+            <div className="space-y-3 p-5 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 space-y-1">
                   <h3 className="text-xl font-semibold text-foreground">{item.degree}</h3>
@@ -56,6 +56,17 @@ export function EducationSection() {
 
               {item.highlights && item.highlights.length > 0 ? (
                 <Disclosure label="Highlights" items={item.highlights} icon={BookOpen} />
+              ) : null}
+
+              {item.exchange ? (
+                <div className="flex items-start gap-2 pt-3 border-t border-border/40">
+                  <CornerDownRight className="w-3.5 h-3.5 text-muted-foreground/60 mt-0.5 shrink-0" />
+                  <p className="text-xs text-muted-foreground leading-snug">
+                    <span className="italic">Exchange Program</span> — {item.exchange.institution},{" "}
+                    {item.exchange.location}
+                    <span className="block text-muted-foreground/70">{item.exchange.period}</span>
+                  </p>
+                </div>
               ) : null}
             </div>
           </RevealItem>

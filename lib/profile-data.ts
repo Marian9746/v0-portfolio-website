@@ -83,6 +83,8 @@ export const profileData = {
   ],
 
   // Education Section
+  // Exchange programs are nested under their corresponding degree as secondary
+  // info (not independent timeline milestones) — see `exchange` field below.
   education: [
     {
       id: 1,
@@ -96,22 +98,14 @@ export const profileData = {
         "Strengthened expertise in network engineering, digital systems, and technology strategy.",
         "Completed the program with a strong academic foundation in engineering and architecture principles.",
       ],
+      exchange: {
+        institution: "Universidad Pontificia Católica de Chile",
+        location: "Santiago, Chile",
+        period: "Jan 2023 – Jul 2023",
+      },
     },
     {
       id: 2,
-      degree: "Exchange Program",
-      institution: "Universidad Pontificia Católica de Chile",
-      location: "Santiago, Chile",
-      period: "Jan 2023 – Jul 2023",
-      description:
-        "Academic exchange experience that broadened my international perspective and cross-cultural collaboration skills.",
-      highlights: [
-        "Expanded academic exposure in a different engineering and research environment.",
-        "Built global connections and adapted to an international academic setting.",
-      ],
-    },
-    {
-      id: 3,
       degree: "Bachelor’s Degree in Telecommunication Engineering",
       institution: "ETSIIT",
       location: "Granada, Spain",
@@ -122,19 +116,11 @@ export const profileData = {
         "Developed solid knowledge in communications systems, software, and engineering fundamentals.",
         "Built the technical foundation that later supported my consulting and digital transformation work.",
       ],
-    },
-    {
-      id: 4,
-      degree: "Exchange Program",
-      institution: "Linköping University",
-      location: "Linköping, Sweden",
-      period: "Sep 2019 – Jul 2020",
-      description:
-        "International exchange that enriched my studies with a different academic and cultural perspective.",
-      highlights: [
-        "Strengthened adaptability and international collaboration in a European academic environment.",
-        "Gained exposure to new technical and academic approaches.",
-      ],
+      exchange: {
+        institution: "Linköping University",
+        location: "Linköping, Sweden",
+        period: "Sep 2019 – Jul 2020",
+      },
     },
   ],
 
