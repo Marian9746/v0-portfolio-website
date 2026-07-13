@@ -3,6 +3,7 @@
 import { profileData } from "@/lib/profile-data"
 import { GraduationCap, MapPin, Calendar, BookOpen } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { Disclosure } from "@/components/motion/disclosure"
 
 export function EducationSection() {
   const { education } = profileData
@@ -30,15 +31,17 @@ export function EducationSection() {
             </div>
 
             <div className="space-y-4 p-5 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
-              <div className="space-y-1">
-                <h3 className="text-xl font-semibold text-foreground">{item.degree}</h3>
-                <p className="text-primary font-medium">{item.institution}</p>
-                <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1 space-y-1">
+                  <h3 className="text-xl font-semibold text-foreground">{item.degree}</h3>
+                  <p className="text-primary font-medium">{item.institution}</p>
+                </div>
+                <div className="shrink-0 text-right space-y-1 text-xs text-muted-foreground">
+                  <span className="flex items-center justify-end gap-1">
                     <Calendar className="w-3.5 h-3.5" />
                     {item.period}
                   </span>
-                  <span className="flex items-center gap-1">
+                  <span className="flex items-center justify-end gap-1">
                     <MapPin className="w-3.5 h-3.5" />
                     {item.location}
                   </span>
@@ -52,19 +55,7 @@ export function EducationSection() {
               ) : null}
 
               {item.highlights && item.highlights.length > 0 ? (
-                <div className="space-y-2">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Highlights
-                  </h4>
-                  <ul className="space-y-1.5">
-                    {item.highlights.map((highlight, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-foreground">
-                        <BookOpen className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <Disclosure label="Highlights" items={item.highlights} icon={BookOpen} />
               ) : null}
             </div>
           </RevealItem>

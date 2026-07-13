@@ -4,25 +4,8 @@ import { profileData } from "@/lib/profile-data"
 import { User, Github, Linkedin, ExternalLink } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 
-function getYearsOfExperience(experience: { period: string }[]): number {
-  const years = experience
-    .map((job) => job.period.match(/\d{4}/)?.[0])
-    .filter((year): year is string => Boolean(year))
-    .map(Number)
-
-  if (years.length === 0) return 0
-  return new Date().getFullYear() - Math.min(...years)
-}
-
 export function AboutSection() {
-  const { personal, about, certifications, projects, experience, skills } = profileData
-  const yearsOfExperience = getYearsOfExperience(experience)
-
-  const stats = [
-    { label: "Years of Experience", value: `${yearsOfExperience}+` },
-    { label: "Certifications", value: certifications.length },
-    { label: "Projects", value: projects.length },
-  ]
+  const { personal, about, skills } = profileData
 
   return (
     <section id="about" className="scroll-mt-24 py-20 sm:py-28 px-6">
@@ -35,19 +18,6 @@ export function AboutSection() {
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground">{about.headline}</h2>
         </Reveal>
-
-        {/* Stats */}
-        <RevealGroup className="grid grid-cols-3 gap-4">
-          {stats.map((stat) => (
-            <RevealItem
-              key={stat.label}
-              className="p-4 bg-secondary/60 rounded-lg text-center border border-border/50"
-            >
-              <p className="text-2xl font-bold text-primary">{stat.value}</p>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
 
         {/* Two-column: description + strengths/tech stack */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

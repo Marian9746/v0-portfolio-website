@@ -3,6 +3,7 @@
 import { profileData } from "@/lib/profile-data"
 import { Briefcase, MapPin, Calendar, CheckCircle } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { Disclosure } from "@/components/motion/disclosure"
 
 export function ExperienceSection() {
   const { experience } = profileData
@@ -56,19 +57,7 @@ export function ExperienceSection() {
               </p>
 
               {/* Achievements */}
-              <div className="space-y-2">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Key Achievements
-                </h4>
-                <ul className="space-y-1.5">
-                  {job.achievements.map((achievement, achIndex) => (
-                    <li key={achIndex} className="flex items-start gap-2 text-sm text-foreground">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Disclosure label="Key Achievements" items={job.achievements} icon={CheckCircle} />
 
               {/* Technologies */}
               <div className="flex flex-wrap gap-2 pt-2">

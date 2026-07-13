@@ -269,14 +269,17 @@ export const profileData = {
   ],
 
   // Recommendation Letter Section
-  // PLACEHOLDER DATA — replace body/fromName/fromRole with the real letter
   recommendationLetter: {
-    fromName: "Placeholder Referee Name",
-    fromRole: "Engineering Manager, Placeholder Company",
-    date: "2026",
-    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    fromName: "David Díez Cebollero",
+    fromRole: "Digital Technology Director — NTT DATA Spain",
+    date: "Madrid, 1 July 2026",
+    body: `What I value most about Marian is her autonomy and reliability. She is the kind of person you can hand an ambitious, poorly defined problem to, confident it will come back solved, documented, and better framed than it started. She doesn't need constant oversight; she needs context, and from there she moves forward with sound judgement and a consistent commitment to the quality of what she delivers.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+I recommend Marian with complete confidence. Whoever hires her will gain a solid, dependable professional with tremendous room to grow.`,
+    files: {
+      en: "/certificates/recommendation_letter_marian_diaz_en.pdf",
+      es: "/certificates/carta_recomendacion_marian_diaz_es.pdf",
+    },
   },
 }
 
