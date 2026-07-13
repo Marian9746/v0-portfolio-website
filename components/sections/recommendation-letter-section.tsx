@@ -66,7 +66,7 @@ export function RecommendationLetterSection() {
                   </p>
                   <div className="mt-8 pt-6 border-t border-border/50 flex flex-wrap items-end justify-between gap-4">
                     <div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2.5">
                         <p className="font-semibold text-card-foreground">{letter.fromName}</p>
                         {letter.linkedin && (
                           <a
@@ -74,9 +74,10 @@ export function RecommendationLetterSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`${letter.fromName} on LinkedIn`}
-                            className="text-muted-foreground hover:text-primary transition-colors"
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 hover:bg-primary/20 rounded-full text-xs font-medium text-primary transition-all duration-200 hover:scale-[1.05]"
                           >
-                            <Linkedin className="w-4 h-4" />
+                            <Linkedin className="w-3.5 h-3.5" />
+                            LinkedIn
                           </a>
                         )}
                       </div>
