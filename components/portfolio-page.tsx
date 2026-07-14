@@ -4,7 +4,6 @@ import { AboutSection } from "@/components/sections/about-section"
 import { SpecialtySection } from "@/components/sections/specialty-section"
 import { ExperienceSection } from "@/components/sections/experience-section"
 import { EducationSection } from "@/components/sections/education-section"
-import { CertificationsSection } from "@/components/sections/certifications-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
 import { RecommendationLetterSection } from "@/components/sections/recommendation-letter-section"
 import { HobbiesSection } from "@/components/sections/hobbies-section"
@@ -21,7 +20,6 @@ export function PortfolioPage() {
         <SpecialtySection />
         <ExperienceSection />
         <EducationSection />
-        <CertificationsSection />
         <ProjectsSection />
         <RecommendationLetterSection />
         <HobbiesSection />

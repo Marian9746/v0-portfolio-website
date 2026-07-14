@@ -110,7 +110,7 @@ export function SpecialtySection() {
 
           <Reveal className="relative rounded-2xl overflow-hidden border border-border/50 aspect-[4/5] lg:aspect-auto group">
             <Image
-              src="/expertise-showcase.svg"
+              src="/placeholder-escritorio.jpeg"
               alt="Technology dashboard showcase"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

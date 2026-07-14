@@ -256,7 +256,7 @@ export const profileData = {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder copy for a third representative project and its core capabilities.",
       tech: ["IoT", "React", "Node.js"],
-      image: "/projects/placeholder-3.svg",
+      image: "/projects/isdi-placeholder.jpg",
       links: { github: "https://github.com/Marian9746", live: "" },
     },
   ],
