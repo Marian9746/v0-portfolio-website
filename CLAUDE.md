@@ -87,5 +87,10 @@ Usage rules:
 - Use components only when they improve the user experience.
 - Avoid making the portfolio look like a component showcase.
 - Prefer subtle animations.
-- Keep performance and readability as priorities.
-- Maintain the minimal premium style inspired by ORVITEC and Vercel.
+- All components imported or adapted from React Bits must be stored inside:`components/reactbits/`
+- Do not place React Bits components directly inside pages, sections or other component folders.
+
+- Before adding a new React Bits component:
+    1. Check if the component already exists in `components/reactbits/`.
+    2. Reuse existing components whenever possible.
+    3. Avoid adding duplicate implementations of similar animations.

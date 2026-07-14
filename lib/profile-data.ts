@@ -21,14 +21,31 @@ export const profileData = {
   // About Me Section
   about: {
     headline: "Engineer by profession, curious by nature. ",
-    description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms. 
+    description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms.
     I’ve always been fascinated by how technology can solve real-world problems. I love the fact that tech allows us to achieve things we once thought were impossible; in a world that never stops evolving, I’m thrilled to be part of that change.`,
 
-    highlights: [
-      "Enterprise Architecture (TOGAF® Certified)",
-      "AI Implementation & Automation",
-      "IoT & Digital Twin Implementation",
-      "Cloud Migration & Modernization",
+    areasOfExpertise: [
+      {
+        title: "Digital Transformation & Enterprise Architecture",
+        description:
+          "Designing enterprise-wide architectures and transformation roadmaps that align technology with business strategy.",
+        note: "TOGAF® Certified Architect",
+      },
+      {
+        title: "AI & Automation",
+        description:
+          "Building AI-powered agents and automation pipelines that remove manual work from real business processes.",
+      },
+      {
+        title: "IoT & Digital Twin",
+        description:
+          "Engineering connected, real-time digital twin systems for industrial and enterprise environments.",
+      },
+      {
+        title: "Cloud Migration & Modernization",
+        description:
+          "Migrating and modernizing legacy systems into scalable, cloud-native architectures on AWS.",
+      },
     ],
   },
 
@@ -127,28 +144,18 @@ export const profileData = {
   // Skills Section
   skills: {
     technical: [
-      { name: "Python", level: 95 },
-      { name: "JavaScript/TypeScript", level: 80 },
-      { name: "React/Next.js", level: 90 },
-      { name: "Node.js", level: 85 },
-      { name: "SQL/NoSQL Databases", level: 80 },
-      { name: "AWS/Cloud Services", level: 75 },
-      { name: "Docker/Kubernetes", level: 80 },
-      { name: "Git/CI-CD", level: 90 },
-      { name: "AI-Agents", level: 85 },
-    ],
-    soft: [
-      "Problem Solving",
-      "Team Leadership",
-      "Agile Methodologies",
-      "Communication",
-      "Continuous Learning",
-      "Adaptability",
-      "Team Leadership",
-      "Effective Communication",
-      "Frontend & 3D Visualization",
-      "Digital Transformation Strategy", 
-      "Enterprise Architecture",
+      { name: "Python" },
+      { name: "JavaScript/TypeScript" },
+      { name: "React" },
+      { name: "Next.js" },
+      { name: "Node.js" },
+      { name: "MySQL" },
+      { name: "MongoDB" },
+      { name: "AWS/Cloud Services" },
+      { name: "Docker" },
+      { name: "Kubernetes" },
+      { name: "Git/CI-CD" },
+      { name: "AI-Agents" },
     ],
     languages: [
       { name: "Spanish", level: "Native" },
@@ -291,7 +298,6 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 export const navigationItems = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
-  { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
   { id: "recommendation", label: "Recommendation" },
   { id: "contact", label: "Contact" },
