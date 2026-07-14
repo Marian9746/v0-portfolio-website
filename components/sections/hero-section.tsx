@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowDown } from "lucide-react"
 import { profileData } from "@/lib/profile-data"
 import { staggerContainer, fadeInUp } from "@/lib/motion"
+import SplitText from "@/components/reactbits/SplitText"
 
 export function HeroSection() {
   const { personal } = profileData
@@ -39,12 +40,11 @@ export function HeroSection() {
           {personal.title}
         </motion.span>
 
-        <motion.h1
-          variants={fadeInUp}
+        <SplitText
+          text={personal.name}
+          tag="h1"
           className="text-6xl sm:text-8xl font-black tracking-tight text-foreground text-balance"
-        >
-          {personal.name}
-        </motion.h1>
+        />
 
         <motion.p
           variants={fadeInUp}

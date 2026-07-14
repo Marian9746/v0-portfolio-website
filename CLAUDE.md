@@ -55,7 +55,8 @@ Usar Tailwind.
 No instalar librerías innecesarias.
 
 Mantener el código limpio.
-Mobile respondive 
+
+Mobile responsive 
 
 ## Antes de modificar algo
 
@@ -77,3 +78,14 @@ When multiple sources of information exist, follow this order:
 Never duplicate personal information outside `lib/profile-data.ts` unless explicitly required.
 
 Never remove or break existing links to PDFs, assets or downloadable resources.
+
+## React Bits
+
+React Bits components are available through MCP.
+
+Usage rules:
+- Use components only when they improve the user experience.
+- Avoid making the portfolio look like a component showcase.
+- Prefer subtle animations.
+- Keep performance and readability as priorities.
+- Maintain the minimal premium style inspired by ORVITEC and Vercel.
