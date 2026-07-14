@@ -247,7 +247,7 @@ export const profileData = {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Placeholder copy describing the architecture and outcome.",
       tech: ["Python", "AWS", "Docker"],
-      image: "/projects/placeholder-2.svg",
+      image: "/projects/portfolio-placeholder.png",
       links: { github: "https://github.com/Marian9746", live: "" },
     },
     {
