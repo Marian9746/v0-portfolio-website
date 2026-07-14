@@ -230,34 +230,37 @@ export const profileData = {
   ],
 
   // Projects Section
-  // PLACEHOLDER DATA — replace with real projects (name, description, tech, links, image)
   projects: [
     {
       id: 1,
-      name: "Project Placeholder One",
+      name: "Industrial Digital Twin Platform",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A short placeholder description of what this project does, the problem it solves, and the impact it had.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+        "Designed and developed a Digital Twin platform integrating IoT devices, real-time telemetry and cloud services. Built end-to-end solutions using React, Node.js, MQTT and AWS to enable monitoring, analytics and data-driven operational decisions.",
+      tech: ["Digital Twins", "IoT", "React", "Node.js", "AWS", "MQTT", "Docker"],
       image: "/projects/placeholder-1.svg",
-      links: { github: "https://github.com/Marian9746", live: "" },
+      link: { type: "linkedin", label: "View on LinkedIn" },
     },
     {
       id: 2,
-      name: "Project Placeholder Two",
+      name: "Personal Portfolio — Design & Coding",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Placeholder copy describing the architecture and outcome.",
-      tech: ["Python", "AWS", "Docker"],
+        "Designed and developed a modern portfolio focused on user experience, performance and personal branding. Built with Next.js and TypeScript, featuring reusable components, responsive layouts and subtle interactions inspired by Vercel and modern product design.",
+      tech: ["Next.js", "React", "TypeScript", "UX", "Tailwind", "Vercel"],
       image: "/projects/portfolio-placeholder.png",
-      links: { github: "https://github.com/Marian9746", live: "" },
+      link: { type: "github", label: "Code" },
     },
     {
       id: 3,
-      name: "Project Placeholder Three",
+      name: "Digital Twins Masterclass for ISDI Digital MBA",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder copy for a third representative project and its core capabilities.",
-      tech: ["IoT", "React", "Node.js"],
+        "Designed and delivered the Digital Twins module for the ISDI Digital MBA, creating the course content from scratch and teaching multiple cohorts. The program combined technical concepts with business strategy, helping students understand how digital replicas enable better business decisions. The session combined technical concepts with practical frameworks, guiding participants from data collection to \"what-if\" simulations and strategic decision-making in real-world scenarios.",
+      tech: ["Digital Twins", "Technology Strategy", "Enterprise Architecture", "Teaching"],
       image: "/projects/isdi-placeholder.jpg",
-      links: { github: "https://github.com/Marian9746", live: "" },
+      link: {
+        type: "external",
+        label: "View Presentation",
+        url: "https://drive.google.com/file/d/1QM9DQJKE7Bcn9fEAkJbx_Qi6ctuNwup4/view?usp=drive_link",
+      },
     },
   ],
 
