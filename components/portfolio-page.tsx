@@ -1,6 +1,7 @@
 import { SiteNav } from "@/components/navigation/site-nav"
 import { HeroSection } from "@/components/sections/hero-section"
 import { AboutSection } from "@/components/sections/about-section"
+import { SpecialtySection } from "@/components/sections/specialty-section"
 import { ExperienceSection } from "@/components/sections/experience-section"
 import { EducationSection } from "@/components/sections/education-section"
 import { CertificationsSection } from "@/components/sections/certifications-section"
@@ -17,6 +18,7 @@ export function PortfolioPage() {
       <main className="bg-background">
         <HeroSection />
         <AboutSection />
+        <SpecialtySection />
         <ExperienceSection />
         <EducationSection />
         <CertificationsSection />

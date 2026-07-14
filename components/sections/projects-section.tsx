@@ -4,19 +4,16 @@ import Image from "next/image"
 import { ExternalLink, FolderGit2, Github } from "lucide-react"
 import { profileData } from "@/lib/profile-data"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { SectionHeading } from "@/components/section-heading"
 
 export function ProjectsSection() {
   const { projects } = profileData
 
   return (
-    <section id="projects" className="scroll-mt-24 py-20 sm:py-28 px-6">
+    <section id="projects" className="scroll-mt-24 py-14 sm:py-20 px-6">
       <div className="max-w-5xl mx-auto space-y-10">
         <Reveal className="space-y-3">
-          <div className="flex items-center gap-2 text-muted-foreground/70 text-xs font-medium uppercase tracking-[0.15em]">
-            <FolderGit2 className="w-4 h-4" />
-            <span>Projects</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">Selected Work</h2>
+          <SectionHeading icon={FolderGit2} eyebrow="Projects" heading="Selected Work" />
           <p className="text-muted-foreground max-w-xl text-sm">
             A few representative projects. More details and case studies coming soon.
           </p>

@@ -44,7 +44,7 @@ export const profileData = {
       {
         title: "Cloud Migration & Modernization",
         description:
-          "Migrating and modernizing legacy systems into scalable, cloud-native architectures on AWS.",
+          "Migrating legacy mainframe systems into modern, scalable cloud-native architectures.",
       },
     ],
   },

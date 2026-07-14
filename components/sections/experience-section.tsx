@@ -4,20 +4,17 @@ import { profileData } from "@/lib/profile-data"
 import { Briefcase, MapPin, Calendar, CheckCircle } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 import { Disclosure } from "@/components/motion/disclosure"
+import { SectionHeading } from "@/components/section-heading"
 
 export function ExperienceSection() {
   const { experience } = profileData
 
   return (
-    <section id="experience" className="scroll-mt-24 py-20 sm:py-28 px-6">
+    <section id="experience" className="scroll-mt-24 py-14 sm:py-20 px-6">
       <div className="max-w-5xl mx-auto space-y-8">
       {/* Header */}
-      <Reveal className="space-y-3">
-        <div className="flex items-center gap-2 text-muted-foreground/70 text-xs font-medium uppercase tracking-[0.15em]">
-          <Briefcase className="w-4 h-4" />
-          <span>Experience</span>
-        </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">Professional Journey</h2>
+      <Reveal>
+        <SectionHeading icon={Briefcase} eyebrow="Experience" heading="Professional Journey" />
       </Reveal>
 
       {/* Timeline */}

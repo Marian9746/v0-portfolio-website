@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, FileText, Linkedin, Quote, ScrollText } from "lucide-react"
 import { profileData } from "@/lib/profile-data"
 import { Reveal } from "@/components/motion/reveal"
+import { SectionHeading } from "@/components/section-heading"
 import { cn } from "@/lib/utils"
 
 const slideVariants = {
@@ -27,14 +28,13 @@ export function RecommendationLetterSection() {
   const letter = recommendationLetters[index]
 
   return (
-    <section id="recommendation" className="scroll-mt-24 py-20 sm:py-28 px-6">
+    <section id="recommendation" className="scroll-mt-24 py-14 sm:py-20 px-6">
       <div className="max-w-5xl mx-auto space-y-10">
         <Reveal className="space-y-3">
-          <div className="flex items-center gap-2 text-muted-foreground/70 text-xs font-medium uppercase tracking-[0.15em]">
-            <ScrollText className="w-4 h-4" />
-            <span>Recommendation Letters</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">In Their Words</h2>
+          <SectionHeading icon={ScrollText} eyebrow="Recommendation Letters" heading="What others say" />
+          <p className="text-muted-foreground max-w-xl text-sm">
+            I&apos;ve worked with some amazing people, here is what they have to say about me.
+          </p>
         </Reveal>
 
         <Reveal>

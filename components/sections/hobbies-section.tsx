@@ -15,6 +15,7 @@ import {
   Piano
 } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { SectionHeading } from "@/components/section-heading"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   code: Code,
@@ -33,15 +34,11 @@ export function HobbiesSection() {
   const { hobbies } = profileData
 
   return (
-    <section id="hobbies" className="scroll-mt-24 py-20 sm:py-28 px-6">
+    <section id="hobbies" className="scroll-mt-24 py-14 sm:py-20 px-6">
       <div className="max-w-5xl mx-auto space-y-6">
         {/* Header */}
-        <Reveal className="space-y-3">
-          <div className="flex items-center gap-2 text-muted-foreground/70 text-xs font-medium uppercase tracking-[0.15em]">
-            <Heart className="w-4 h-4" />
-            <span>Hobbies & Interests</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">Beyond the Code</h2>
+        <Reveal>
+          <SectionHeading icon={Heart} eyebrow="Hobbies & Interests" heading="Beyond the Code" />
         </Reveal>
 
         {/* Hobbies chips */}

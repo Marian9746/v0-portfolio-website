@@ -3,20 +3,17 @@
 import { profileData } from "@/lib/profile-data"
 import { Award, ExternalLink } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { SectionHeading } from "@/components/section-heading"
 
 export function CertificationsSection() {
   const { certifications, personal } = profileData
 
   return (
-    <section id="certifications" className="scroll-mt-24 py-20 sm:py-28 px-6">
+    <section id="certifications" className="scroll-mt-24 py-14 sm:py-20 px-6">
       <div className="max-w-5xl mx-auto space-y-8">
       {/* Header */}
-      <Reveal className="space-y-3">
-        <div className="flex items-center gap-2 text-muted-foreground/70 text-xs font-medium uppercase tracking-[0.15em]">
-          <Award className="w-4 h-4" />
-          <span>Certifications</span>
-        </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">Professional Credentials</h2>
+      <Reveal>
+        <SectionHeading icon={Award} eyebrow="Certifications" heading="Professional Credentials" />
       </Reveal>
 
       {/* Certifications Grid */}
