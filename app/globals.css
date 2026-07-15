@@ -6,23 +6,23 @@
 /* Modern light theme with dark menu - Inspired by Meny demo */
 :root {
   /* Main content area - Light and clean */
-  --background: oklch(0.95 0.005 240);
+  --background: #f9f9f9;
   --foreground: oklch(0.18 0.01 240);
-  
-  /* Menu/Card - Dark for contrast */
-  --card: oklch(0.20 0.015 240);
-  --card-foreground: oklch(0.95 0.005 240);
-  
+
+  /* Card surfaces */
+  --card: #e7e8e8;
+  --card-foreground: oklch(0.18 0.01 240);
+
   /* Popovers */
-  --popover: oklch(0.97 0.005 240);
+  --popover: #e7e8e8;
   --popover-foreground: oklch(0.18 0.01 240);
-  
+
   /* Primary color - Soft coral/rose (inspired by demo #c2575b) */
   --primary: oklch(0.62 0.16 15);
   --primary-foreground: oklch(0.98 0.005 15);
-  
+
   /* Secondary - Subtle gray */
-  --secondary: oklch(0.88 0.01 240);
+  --secondary: #e7e8e8;
   --secondary-foreground: oklch(0.25 0.015 240);
   
   /* Muted elements */
@@ -50,20 +50,66 @@
   --chart-5: oklch(0.68 0.14 330);
   
   --radius: 0.5rem;
-  
-  /* Sidebar/Menu - Dark for 3D effect */
-  --sidebar: oklch(0.20 0.015 240);
-  --sidebar-foreground: oklch(0.92 0.005 240);
-  --sidebar-primary: #d45666;
+
+  /* Sidebar (mobile nav panel) */
+  --sidebar: #e7e8e8;
+  --sidebar-foreground: oklch(0.18 0.01 240);
+  --sidebar-primary: oklch(0.62 0.16 15);
   --sidebar-primary-foreground: oklch(0.98 0.005 15);
-  --sidebar-accent: oklch(0.25 0.015 240);
-  --sidebar-accent-foreground: oklch(0.92 0.005 240);
-  --sidebar-border: oklch(0.30 0.015 240);
+  --sidebar-accent: oklch(0.92 0.008 240);
+  --sidebar-accent-foreground: oklch(0.25 0.015 240);
+  --sidebar-border: oklch(0.85 0.01 240);
   --sidebar-ring: oklch(0.62 0.16 15);
 }
 
+/* Dark theme */
+.dark {
+  --background: oklch(0.16 0.012 240);
+  --foreground: oklch(0.94 0.006 240);
+
+  --card: oklch(0.21 0.014 240);
+  --card-foreground: oklch(0.94 0.006 240);
+
+  --popover: oklch(0.21 0.014 240);
+  --popover-foreground: oklch(0.94 0.006 240);
+
+  --primary: oklch(0.68 0.17 15);
+  --primary-foreground: oklch(0.14 0.01 15);
+
+  --secondary: oklch(0.26 0.014 240);
+  --secondary-foreground: oklch(0.90 0.006 240);
+
+  --muted: oklch(0.24 0.012 240);
+  --muted-foreground: oklch(0.65 0.012 240);
+
+  --accent: oklch(0.70 0.18 20);
+  --accent-foreground: oklch(0.14 0.01 20);
+
+  --destructive: oklch(0.62 0.20 25);
+  --destructive-foreground: oklch(0.14 0.01 25);
+
+  --border: oklch(0.30 0.014 240);
+  --input: oklch(0.28 0.014 240);
+  --ring: oklch(0.68 0.17 15);
+
+  --chart-1: oklch(0.68 0.17 15);
+  --chart-2: oklch(0.68 0.14 180);
+  --chart-3: oklch(0.65 0.13 270);
+  --chart-4: oklch(0.72 0.15 90);
+  --chart-5: oklch(0.70 0.14 330);
+
+  --sidebar: oklch(0.21 0.014 240);
+  --sidebar-foreground: oklch(0.90 0.006 240);
+  --sidebar-primary: oklch(0.68 0.17 15);
+  --sidebar-primary-foreground: oklch(0.14 0.01 15);
+  --sidebar-accent: oklch(0.26 0.014 240);
+  --sidebar-accent-foreground: oklch(0.90 0.006 240);
+  --sidebar-border: oklch(0.30 0.014 240);
+  --sidebar-ring: oklch(0.68 0.17 15);
+}
+
 @theme inline {
-  --font-sans: var(--font-sans), 'Inter', system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -110,130 +156,17 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-/* Meny 3D Menu Styles - Inspired by demo */
-.meny-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-  /* Dark textured background like demo */
-  background-color: #222;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2NkYGD4D8SMQAwGcAY2AbBKDBUAVuYCBQPd34sAAAAASUVORK5CYII=);
-  background-repeat: repeat;
-  perspective: 800px;
-}
-
-.meny-menu {
-  box-sizing: border-box;
-  backface-visibility: hidden;
-  will-change: transform;
-  /* Dark menu background for contrast */
-  background: #333;
-  box-shadow: 6px 0 30px rgba(0, 0, 0, 0.5);
-}
-
-.meny-contents {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  /* Light content area for strong contrast */
-  background: #f0f0f0;
-  box-sizing: border-box;
-  transform-style: preserve-3d;
-  -webkit-overflow-scrolling: touch;
-  will-change: transform;
-}
-
-.meny-cover {
-  cursor: pointer;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.meny-active .meny-cover {
-  pointer-events: auto;
-}
-
-/* Menu active state indicator */
-.meny-active .meny-arrow {
-  opacity: 0 !important;
-}
-
-/* Hint arrow for menu - matches new color scheme */
-.meny-hint {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  padding: 12px 6px;
-  background: rgba(194, 87, 91, 0.8);
-  border-radius: 0 8px 8px 0;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.meny-hint:hover {
-  opacity: 1;
-}
-
-.meny-active .meny-hint {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Custom scrollbar for webkit browsers */
-.meny-contents::-webkit-scrollbar {
-  width: 8px;
-}
-
-.meny-contents::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.meny-contents::-webkit-scrollbar-thumb {
-  background: rgba(194, 87, 91, 0.3);
-  border-radius: 4px;
-}
-
-.meny-contents::-webkit-scrollbar-thumb:hover {
-  background: rgba(194, 87, 91, 0.5);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+  html {
+    scroll-behavior: smooth;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-.animate-slide-in {
-  animation: slideInLeft 0.4s ease-out forwards;
 }

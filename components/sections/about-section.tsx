@@ -1,95 +1,57 @@
 "use client"
 
+import { Linkedin, Mail, User } from "lucide-react"
 import { profileData } from "@/lib/profile-data"
-import { User, MapPin, Mail, Phone, Linkedin, Github, ExternalLink } from "lucide-react"
+import { Reveal } from "@/components/motion/reveal"
+import { SectionHeading } from "@/components/section-heading"
+import { CertificationsTrustCard } from "@/components/certifications-trust-card"
 
 export function AboutSection() {
-  const { personal, about } = profileData
+  const { about, personal } = profileData
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
-      {/* Header */}
-      <div className="space-y-2">
-        <div className="flex items-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
-          <User className="w-4 h-4" />
-          <span>About Me</span>
-        </div>
-        <h2 className="text-3xl font-bold text-foreground">{about.headline}</h2>
-      </div>
+    <section id="about" className="scroll-mt-24 py-14 sm:py-20 px-6">
+      <div className="max-w-5xl mx-auto space-y-6">
+        <Reveal>
+          <SectionHeading
+            icon={User}
+            eyebrow="About Me"
+            heading={about.headline}
+            highlightWords={["Engineer", "curious"]}
+          />
+        </Reveal>
 
-      {/* Description */}
-      <div className="text-muted-foreground leading-relaxed whitespace-pre-line text-base">
-        {about.description}
-      </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:items-start">
+          <div className="lg:col-span-2 space-y-4">
+            <Reveal className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm max-w-3xl">
+              {about.description}
+            </Reveal>
 
-      {/* Highlights */}
-      <div className="space-y-3">
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-          Key Strengths
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {about.highlights.map((highlight, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-2 text-foreground bg-secondary/50 px-3 py-2 rounded-md"
-            >
-              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span className="text-sm">{highlight}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Contact Info */}
-      <div className="space-y-3 pt-4 border-t border-border">
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-          Contact Information
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <MapPin className="w-4 h-4" />
-            <span className="text-sm">{personal.location}</span>
+            <Reveal className="flex items-center gap-2">
+              <a
+                href={personal.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground transition-colors duration-200 hover:border-foreground/20 hover:bg-secondary/60 hover:text-foreground"
+              >
+                <Linkedin className="w-3.5 h-3.5" />
+                LinkedIn
+              </a>
+              <a
+                href={`mailto:${personal.email}`}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground transition-colors duration-200 hover:border-foreground/20 hover:bg-secondary/60 hover:text-foreground"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                Email
+              </a>
+            </Reveal>
           </div>
-          <a
-            href={`mailto:${personal.email}`}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Mail className="w-4 h-4" />
-            <span className="text-sm">{personal.email}</span>
-          </a>
-          <a
-            href={`tel:${personal.phone}`}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            <span className="text-sm">{personal.phone}</span>
-          </a>
+
+          <Reveal className="lg:col-span-1">
+            <CertificationsTrustCard />
+          </Reveal>
         </div>
       </div>
-
-      {/* Social Links */}
-      <div className="flex flex-wrap gap-3">
-        <a
-          href={personal.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground rounded-md transition-colors text-sm"
-        >
-          <Linkedin className="w-4 h-4" />
-          <span>LinkedIn</span>
-          <ExternalLink className="w-3 h-3" />
-        </a>
-        <a
-          href={personal.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground rounded-md transition-colors text-sm"
-        >
-          <Github className="w-4 h-4" />
-          <span>GitHub</span>
-          <ExternalLink className="w-3 h-3" />
-        </a>
-      </div>
-    </div>
+    </section>
   )
 }

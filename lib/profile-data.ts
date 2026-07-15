@@ -8,6 +8,7 @@ export const profileData = {
     name: "Marian Díaz Romero",
     title: "Systems Engineer | Technology Advisory consultant",
     subtitle: "Systems Engineer | Technology Advisory consultant",
+    tagline: "Engineering cloud, AI and digital-twin systems that turn ambiguous problems into shipped products.",
     email: "mariandiazrom@gmail.com",
     location: "Sydney, Australia",
     phone: "+34 648 533 117",
@@ -19,15 +20,32 @@ export const profileData = {
 
   // About Me Section
   about: {
-    headline: "Engineer by profession, curious by nature. 👋",
-    description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms. 
+    headline: "Engineer by profession, curious by nature. ",
+    description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms.
     I’ve always been fascinated by how technology can solve real-world problems. I love the fact that tech allows us to achieve things we once thought were impossible; in a world that never stops evolving, I’m thrilled to be part of that change.`,
 
-    highlights: [
-      "Enterprise Architecture (TOGAF® Certified)",
-      "AI Implementation & Automation",
-      "IoT & Digital Twin Implementation",
-      "Cloud Migration & Modernization",
+    areasOfExpertise: [
+      {
+        title: "Digital Transformation & Enterprise Architecture",
+        description:
+          "Designing enterprise-wide architectures and transformation roadmaps that align technology with business strategy.",
+        note: "TOGAF® Certified Architect",
+      },
+      {
+        title: "AI & Automation",
+        description:
+          "Building AI-powered agents and automation pipelines that remove manual work from real business processes.",
+      },
+      {
+        title: "IoT & Digital Twin",
+        description:
+          "Engineering connected, real-time digital twin systems for industrial and enterprise environments.",
+      },
+      {
+        title: "Cloud Migration & Modernization",
+        description:
+          "Migrating legacy mainframe systems into modern, scalable cloud-native architectures.",
+      },
     ],
   },
 
@@ -82,6 +100,8 @@ export const profileData = {
   ],
 
   // Education Section
+  // Exchange programs are nested under their corresponding degree as secondary
+  // info (not independent timeline milestones) — see `exchange` field below.
   education: [
     {
       id: 1,
@@ -95,22 +115,14 @@ export const profileData = {
         "Strengthened expertise in network engineering, digital systems, and technology strategy.",
         "Completed the program with a strong academic foundation in engineering and architecture principles.",
       ],
+      exchange: {
+        institution: "Universidad Pontificia Católica de Chile",
+        location: "Santiago, Chile",
+        period: "Jan 2023 – Jul 2023",
+      },
     },
     {
       id: 2,
-      degree: "Exchange Program",
-      institution: "Universidad Pontificia Católica de Chile",
-      location: "Santiago, Chile",
-      period: "Jan 2023 – Jul 2023",
-      description:
-        "Academic exchange experience that broadened my international perspective and cross-cultural collaboration skills.",
-      highlights: [
-        "Expanded academic exposure in a different engineering and research environment.",
-        "Built global connections and adapted to an international academic setting.",
-      ],
-    },
-    {
-      id: 3,
       degree: "Bachelor’s Degree in Telecommunication Engineering",
       institution: "ETSIIT",
       location: "Granada, Spain",
@@ -121,47 +133,29 @@ export const profileData = {
         "Developed solid knowledge in communications systems, software, and engineering fundamentals.",
         "Built the technical foundation that later supported my consulting and digital transformation work.",
       ],
-    },
-    {
-      id: 4,
-      degree: "Exchange Program",
-      institution: "Linköping University",
-      location: "Linköping, Sweden",
-      period: "Sep 2019 – Jul 2020",
-      description:
-        "International exchange that enriched my studies with a different academic and cultural perspective.",
-      highlights: [
-        "Strengthened adaptability and international collaboration in a European academic environment.",
-        "Gained exposure to new technical and academic approaches.",
-      ],
+      exchange: {
+        institution: "Linköping University",
+        location: "Linköping, Sweden",
+        period: "Sep 2019 – Jul 2020",
+      },
     },
   ],
 
   // Skills Section
   skills: {
     technical: [
-      { name: "Python", level: 95 },
-      { name: "JavaScript/TypeScript", level: 80 },
-      { name: "React/Next.js", level: 90 },
-      { name: "Node.js", level: 85 },
-      { name: "SQL/NoSQL Databases", level: 80 },
-      { name: "AWS/Cloud Services", level: 75 },
-      { name: "Docker/Kubernetes", level: 80 },
-      { name: "Git/CI-CD", level: 90 },
-      { name: "AI-Agents", level: 85 },
-    ],
-    soft: [
-      "Problem Solving",
-      "Team Leadership",
-      "Agile Methodologies",
-      "Communication",
-      "Continuous Learning",
-      "Adaptability",
-      "Team Leadership",
-      "Effective Communication",
-      "Frontend & 3D Visualization",
-      "Digital Transformation Strategy", 
-      "Enterprise Architecture",
+      { name: "Python" },
+      { name: "JavaScript/TypeScript" },
+      { name: "React" },
+      { name: "Next.js" },
+      { name: "Node.js" },
+      { name: "MySQL" },
+      { name: "MongoDB" },
+      { name: "AWS/Cloud Services" },
+      { name: "Docker" },
+      { name: "Kubernetes" },
+      { name: "Git/CI-CD" },
+      { name: "AI-Agents" },
     ],
     languages: [
       { name: "Spanish", level: "Native" },
@@ -231,17 +225,84 @@ export const profileData = {
       name: "ALM01F - Application Lifecycle Management (ALM/QC)",
       issuer: "VP Global Learning Services",
       date: "2023",
-      certificateUrl: "/certificates/Certificate ALM01F.pdf", 
+      certificateUrl: "/certificates/Certificate ALM01F.pdf",
+    },
+  ],
+
+  // Projects Section
+  projects: [
+    {
+      id: 1,
+      name: "Industrial Digital Twin Platform",
+      description:
+        "Designed and developed a Digital Twin platform integrating IoT devices, real-time telemetry and cloud services. Built end-to-end solutions using React, Node.js, MQTT and AWS to enable monitoring, analytics and data-driven operational decisions.",
+      tech: ["Digital Twins", "IoT", "React", "Node.js", "AWS", "MQTT", "Docker"],
+      image: "/projects/placeholder-project-1.png",
+      link: { type: "linkedin", label: "View on LinkedIn" },
+    },
+    {
+      id: 2,
+      name: "Personal Portfolio — Design & Coding",
+      description:
+        "Designed and developed a modern portfolio focused on user experience, performance and personal branding. Built with Next.js and TypeScript, featuring reusable components, responsive layouts and subtle interactions inspired by Vercel and modern product design.",
+      tech: ["Next.js", "React", "TypeScript", "UX", "Tailwind", "Vercel"],
+      image: "/projects/portfolio-placeholder.png",
+      link: { type: "github", label: "Code" },
+    },
+    {
+      id: 3,
+      name: "Digital Twins Masterclass for ISDI Digital MBA",
+      description:
+        "Designed and delivered the Digital Twins module for the ISDI Digital MBA, creating the course content from scratch and teaching multiple cohorts. The program combined technical concepts with business strategy, helping students understand how digital replicas enable better business decisions. The session combined technical concepts with practical frameworks, guiding participants from data collection to \"what-if\" simulations and strategic decision-making in real-world scenarios.",
+      tech: ["Digital Twins", "Technology Strategy", "Enterprise Architecture", "Teaching"],
+      image: "/projects/isdi-placeholder.jpg",
+      link: {
+        type: "external",
+        label: "View Presentation",
+        url: "https://drive.google.com/file/d/1QM9DQJKE7Bcn9fEAkJbx_Qi6ctuNwup4/view?usp=drive_link",
+      },
+    },
+  ],
+
+  // Recommendation Letters Section
+  recommendationLetters: [
+    {
+      fromName: "David Díez Cebollero",
+      fromRole: "Digital Technology Director — NTT DATA Spain",
+      linkedin: "https://www.linkedin.com/in/daviddiezcebollero/",
+      date: "Madrid, 1 July 2026",
+      body: `What I value most about Marian is her autonomy and reliability. She is the kind of person you can hand an ambitious, poorly defined problem to, confident it will come back solved, documented, and better framed than it started. She doesn't need constant oversight; she needs context, and from there she moves forward with sound judgement and a consistent commitment to the quality of what she delivers.
+
+I recommend Marian with complete confidence. Whoever hires her will gain a solid, dependable professional with tremendous room to grow.`,
+      highlightPhrases: ["autonomy and reliability", "solid, dependable professional"],
+      files: {
+        en: "/certificates/recommendation_letter_marian_diaz_en.pdf",
+        es: "/certificates/carta_recomendacion_marian_diaz_es.pdf",
+      },
+    },
+    {
+      // PLACEHOLDER — replace with the real second recommendation letter
+      fromName: "Placeholder Referee Name",
+      fromRole: "Job Title, Company",
+      linkedin: "",
+      date: "2026",
+      body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      files: {
+        en: "",
+        es: "",
+      },
     },
   ],
 }
 
-// Navigation items for the menu
+// Anchor navigation items for the sticky one-page nav.
+// Each id must match a <section id="..."> exactly.
 export const navigationItems = [
-  { id: "about", label: "About Me", icon: "user" },
-  { id: "experience", label: "Experience", icon: "briefcase" },
-  { id: "education", label: "Education", icon: "graduation" },
-  { id: "skills", label: "Skills", icon: "zap" },
-  { id: "certifications", label: "Certifications", icon: "award" },
-  { id: "hobbies", label: "Hobbies", icon: "heart" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "recommendation", label: "Recommendation" },
+  { id: "contact", label: "Contact" },
 ]

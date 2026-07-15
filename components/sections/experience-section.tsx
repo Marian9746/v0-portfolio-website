@@ -2,44 +2,46 @@
 
 import { profileData } from "@/lib/profile-data"
 import { Briefcase, MapPin, Calendar, CheckCircle } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+import { Disclosure } from "@/components/motion/disclosure"
+import { SectionHeading } from "@/components/section-heading"
 
 export function ExperienceSection() {
   const { experience } = profileData
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <section id="experience" className="scroll-mt-24 py-14 sm:py-20 px-6">
+      <div className="max-w-5xl mx-auto space-y-8">
       {/* Header */}
-      <div className="space-y-2">
-        <div className="flex items-center gap-2 text-muted-foreground text-sm uppercase tracking-wider">
-          <Briefcase className="w-4 h-4" />
-          <span>Experience</span>
-        </div>
-        <h2 className="text-3xl font-bold text-foreground">Professional Journey</h2>
-      </div>
+      <Reveal>
+        <SectionHeading icon={Briefcase} eyebrow="Experience" heading="Professional Journey" />
+      </Reveal>
 
       {/* Timeline */}
-      <div className="relative space-y-8">
+      <RevealGroup className="relative space-y-6">
         {/* Timeline line */}
         <div className="absolute left-3 top-2 bottom-2 w-px bg-border" />
 
         {experience.map((job, index) => (
-          <div key={job.id} className="relative pl-10">
+          <RevealItem key={job.id} className="relative pl-10">
             {/* Timeline dot */}
             <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
               <div className="w-2 h-2 rounded-full bg-primary-foreground" />
             </div>
 
-            <div className="space-y-4 p-5 bg-secondary/30 rounded-lg border border-border/50 hover:border-border transition-colors">
+            <div className="space-y-3 p-4 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
               {/* Header */}
-              <div className="space-y-1">
-                <h3 className="text-xl font-semibold text-foreground">{job.role}</h3>
-                <p className="text-primary font-medium">{job.company}</p>
-                <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1 space-y-1">
+                  <h3 className="text-base font-semibold text-foreground">{job.role}</h3>
+                  <p className="text-primary font-medium text-sm font-mono">{job.company}</p>
+                </div>
+                <div className="shrink-0 text-right space-y-1 text-xs font-light text-muted-foreground">
+                  <span className="flex items-center justify-end gap-1">
                     <Calendar className="w-3.5 h-3.5" />
                     {job.period}
                   </span>
-                  <span className="flex items-center gap-1">
+                  <span className="flex items-center justify-end gap-1">
                     <MapPin className="w-3.5 h-3.5" />
                     {job.location}
                   </span>
@@ -52,19 +54,7 @@ export function ExperienceSection() {
               </p>
 
               {/* Achievements */}
-              <div className="space-y-2">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Key Achievements
-                </h4>
-                <ul className="space-y-1.5">
-                  {job.achievements.map((achievement, achIndex) => (
-                    <li key={achIndex} className="flex items-start gap-2 text-sm text-foreground">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Disclosure label="Key Achievements" items={job.achievements} icon={CheckCircle} />
 
               {/* Technologies */}
               <div className="flex flex-wrap gap-2 pt-2">
@@ -78,9 +68,10 @@ export function ExperienceSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </RevealItem>
         ))}
+      </RevealGroup>
       </div>
-    </div>
+    </section>
   )
 }
