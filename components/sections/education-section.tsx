@@ -18,7 +18,7 @@ export function EducationSection() {
       </Reveal>
 
       {/* Timeline */}
-      <RevealGroup className="relative space-y-6">
+      <RevealGroup className="relative space-y-5">
         <div className="absolute left-3 top-2 bottom-2 w-px bg-border" />
 
         {education.map((item) => (
@@ -27,18 +27,18 @@ export function EducationSection() {
               <GraduationCap className="w-3.5 h-3.5 text-primary-foreground" />
             </div>
 
-            <div className="space-y-3 p-5 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
-              <div className="flex items-start justify-between gap-4">
+            <div className="space-y-2.5 p-4 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
                 <div className="flex-1 space-y-1">
-                  <h3 className="text-xl font-semibold text-foreground">{item.degree}</h3>
-                  <p className="text-primary font-medium">{item.institution}</p>
+                  <h3 className="text-base font-semibold text-foreground">{item.degree}</h3>
+                  <p className="text-primary font-medium text-sm font-mono">{item.institution}</p>
                 </div>
-                <div className="shrink-0 text-right space-y-1 text-xs font-light text-muted-foreground">
-                  <span className="flex items-center justify-end gap-1">
+                <div className="shrink-0 space-y-1 text-xs font-light text-muted-foreground sm:text-right">
+                  <span className="flex items-center gap-1 sm:justify-end">
                     <Calendar className="w-3.5 h-3.5" />
                     {item.period}
                   </span>
-                  <span className="flex items-center justify-end gap-1">
+                  <span className="flex items-center gap-1 sm:justify-end">
                     <MapPin className="w-3.5 h-3.5" />
                     {item.location}
                   </span>

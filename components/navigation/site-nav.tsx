@@ -15,6 +15,18 @@ export function SiteNav() {
 
   const cvMailto = `mailto:${personal.email}?subject=CV Request&body=Hi Marian,%0D%0A%0D%0AI would like to request your CV for review.%0D%0A%0D%0AThank you!%0D%0A%0D%0ABest regards`
 
+  // Native anchor hash-navigation gets cancelled if the menu's close
+  // re-render happens in the same or an overlapping task, so we take over
+  // the scroll ourselves: close the menu first, then scroll once its exit
+  // animation has finished.
+  const handleNavClick = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    setIsOpen(false)
+    window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
+    }, 250)
+  }
+
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -71,14 +83,14 @@ export function SiteNav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden border-t border-border bg-background"
+            className="md:hidden absolute left-0 right-0 top-full overflow-hidden border-t border-border bg-background shadow-lg"
           >
             <div className="px-6 py-4 flex flex-col gap-1">
               {navigationItems.map((item) => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleNavClick(item.id)}
                   className={cn(
                     "px-3 py-2 text-sm rounded-md transition-colors",
                     activeId === item.id

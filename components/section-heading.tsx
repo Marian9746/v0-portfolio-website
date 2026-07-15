@@ -10,9 +10,25 @@ interface SectionHeadingProps {
   eyebrow: string
   heading: string
   align?: "left" | "center"
+  highlightWords?: string[]
 }
 
-export function SectionHeading({ icon: Icon, eyebrow, heading, align = "left" }: SectionHeadingProps) {
+const HEADING_CLASSNAME = "text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground"
+
+function renderHighlighted(text: string, highlightWords: string[]) {
+  const targets = new Set(highlightWords.map((word) => word.toLowerCase()))
+
+  return text.split(/(\s+)/).map((token, index) => {
+    const key = token.replace(/[^a-zA-Z0-9']/g, "").toLowerCase()
+    return (
+      <span key={index} className={targets.has(key) ? "text-primary" : undefined}>
+        {token}
+      </span>
+    )
+  })
+}
+
+export function SectionHeading({ icon: Icon, eyebrow, heading, align = "left", highlightWords }: SectionHeadingProps) {
   const centered = align === "center"
 
   return (
@@ -27,12 +43,13 @@ export function SectionHeading({ icon: Icon, eyebrow, heading, align = "left" }:
         <Icon className="w-4 h-4" />
         <span>{eyebrow}</span>
       </div>
-      <SplitText
-        tag="h2"
-        text={heading}
-        textAlign={align}
-        className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground"
-      />
+      {highlightWords ? (
+        <h2 className={cn(HEADING_CLASSNAME, centered && "text-center")}>
+          {renderHighlighted(heading, highlightWords)}
+        </h2>
+      ) : (
+        <SplitText tag="h2" text={heading} textAlign={align} className={HEADING_CLASSNAME} />
+      )}
     </div>
   )
 }

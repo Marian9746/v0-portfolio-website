@@ -18,7 +18,7 @@ export function ExperienceSection() {
       </Reveal>
 
       {/* Timeline */}
-      <RevealGroup className="relative space-y-8">
+      <RevealGroup className="relative space-y-6">
         {/* Timeline line */}
         <div className="absolute left-3 top-2 bottom-2 w-px bg-border" />
 
@@ -29,12 +29,12 @@ export function ExperienceSection() {
               <div className="w-2 h-2 rounded-full bg-primary-foreground" />
             </div>
 
-            <div className="space-y-4 p-5 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
+            <div className="space-y-3 p-4 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
               {/* Header */}
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 space-y-1">
-                  <h3 className="text-xl font-semibold text-foreground">{job.role}</h3>
-                  <p className="text-primary font-medium">{job.company}</p>
+                  <h3 className="text-base font-semibold text-foreground">{job.role}</h3>
+                  <p className="text-primary font-medium text-sm font-mono">{job.company}</p>
                 </div>
                 <div className="shrink-0 text-right space-y-1 text-xs font-light text-muted-foreground">
                   <span className="flex items-center justify-end gap-1">

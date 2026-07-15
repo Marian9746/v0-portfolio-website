@@ -13,7 +13,12 @@ export function AboutSection() {
     <section id="about" className="scroll-mt-24 py-14 sm:py-20 px-6">
       <div className="max-w-5xl mx-auto space-y-6">
         <Reveal>
-          <SectionHeading icon={User} eyebrow="About Me" heading={about.headline} />
+          <SectionHeading
+            icon={User}
+            eyebrow="About Me"
+            heading={about.headline}
+            highlightWords={["Engineer", "curious"]}
+          />
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:items-start">
