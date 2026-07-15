@@ -14,6 +14,22 @@ const slideVariants = {
   exit: (direction: number) => ({ x: direction > 0 ? -40 : 40, opacity: 0 }),
 }
 
+function renderWithBoldPhrases(text: string, phrases?: string[]) {
+  if (!phrases || phrases.length === 0) return text
+
+  const pattern = new RegExp(`(${phrases.map((phrase) => phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "g")
+
+  return text.split(pattern).map((segment, index) =>
+    phrases.includes(segment) ? (
+      <strong key={index} className="font-semibold text-foreground">
+        {segment}
+      </strong>
+    ) : (
+      <span key={index}>{segment}</span>
+    ),
+  )
+}
+
 export function RecommendationLetterSection() {
   const { recommendationLetters } = profileData
   const [[index, direction], setIndexDirection] = useState<[number, number]>([0, 0])
@@ -62,7 +78,7 @@ export function RecommendationLetterSection() {
                 >
                   <Quote className="w-8 h-8 text-primary/30 mb-6" />
                   <p className="text-card-foreground leading-relaxed whitespace-pre-line text-sm font-mono">
-                    {letter.body}
+                    {renderWithBoldPhrases(letter.body, letter.highlightPhrases)}
                   </p>
                   <div className="mt-8 pt-6 border-t border-border/50 flex flex-wrap items-end justify-between gap-4">
                     <div>

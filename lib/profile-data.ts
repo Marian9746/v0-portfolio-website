@@ -237,7 +237,7 @@ export const profileData = {
       description:
         "Designed and developed a Digital Twin platform integrating IoT devices, real-time telemetry and cloud services. Built end-to-end solutions using React, Node.js, MQTT and AWS to enable monitoring, analytics and data-driven operational decisions.",
       tech: ["Digital Twins", "IoT", "React", "Node.js", "AWS", "MQTT", "Docker"],
-      image: "/projects/placeholder-1.svg",
+      image: "/projects/placeholder-project-1.png",
       link: { type: "linkedin", label: "View on LinkedIn" },
     },
     {
@@ -274,6 +274,7 @@ export const profileData = {
       body: `What I value most about Marian is her autonomy and reliability. She is the kind of person you can hand an ambitious, poorly defined problem to, confident it will come back solved, documented, and better framed than it started. She doesn't need constant oversight; she needs context, and from there she moves forward with sound judgement and a consistent commitment to the quality of what she delivers.
 
 I recommend Marian with complete confidence. Whoever hires her will gain a solid, dependable professional with tremendous room to grow.`,
+      highlightPhrases: ["autonomy and reliability", "solid, dependable professional"],
       files: {
         en: "/certificates/recommendation_letter_marian_diaz_en.pdf",
         es: "/certificates/carta_recomendacion_marian_diaz_es.pdf",

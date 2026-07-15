@@ -62,9 +62,22 @@ export function HeroSection() {
           </a>
           <a
             href="#contact"
-            className="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-secondary/70 hover:scale-[1.03] hover:shadow-md active:scale-[0.98]"
+            className="group relative isolate inline-flex items-center justify-center overflow-hidden px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition-[transform,box-shadow] duration-200 hover:scale-[1.03] hover:shadow-md active:scale-[0.98]"
           >
-            Get in touch
+            <span
+              aria-hidden
+              className="absolute inset-x-0 -bottom-full -z-10 h-full rounded-t-full bg-primary transition-[bottom,border-radius] duration-500 ease-[cubic-bezier(0.4,0,0,1)] group-hover:bottom-0 group-hover:rounded-none"
+            />
+            <span className="relative block h-[1.25em] overflow-hidden">
+              <span className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.4,0,0,1)] group-hover:-translate-y-1/2">
+                <span className="flex h-[1.25em] items-center justify-center transition-colors duration-500 group-hover:text-primary-foreground">
+                  Get in touch
+                </span>
+                <span className="flex h-[1.25em] items-center justify-center text-primary-foreground">
+                  Contact
+                </span>
+              </span>
+            </span>
           </a>
         </motion.div>
       </motion.div>
