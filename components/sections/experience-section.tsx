@@ -20,13 +20,13 @@ export function ExperienceSection() {
       {/* Timeline */}
       <RevealGroup className="relative space-y-6">
         {/* Timeline line */}
-        <div className="absolute left-3 top-2 bottom-2 w-px bg-border" />
+        <div className="absolute left-2 top-2 bottom-2 w-px bg-border" />
 
         {experience.map((job, index) => (
-          <RevealItem key={job.id} className="relative pl-10">
+          <RevealItem key={job.id} className="relative pl-8">
             {/* Timeline dot */}
-            <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
-              <div className="w-2 h-2 rounded-full bg-primary-foreground" />
+            <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />
             </div>
 
             <div className="space-y-3 p-4 bg-secondary/60 rounded-lg border border-border/50 hover:border-border transition-colors">
