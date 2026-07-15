@@ -35,7 +35,7 @@ export function HeroSection() {
       >
         <motion.span
           variants={fadeInUp}
-          className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/70"
+          className="font-mono text-base font-medium uppercase tracking-[0.2em] text-muted-foreground/70"
         >
           {personal.title}
         </motion.span>
