@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { FileText, Menu, X } from "lucide-react"
 import { navigationItems, profileData } from "@/lib/profile-data"
@@ -27,7 +27,15 @@ export function SiteNav() {
     }, 250)
   }
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isOpen])
+
   return (
+    <>
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#hero" className="font-semibold text-foreground tracking-tight">
@@ -69,50 +77,54 @@ export function SiteNav() {
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="w-9 h-9 flex items-center justify-center rounded-lg text-foreground hover:bg-secondary transition-colors"
+            className="relative z-50 w-9 h-9 flex items-center justify-center rounded-lg text-foreground hover:bg-secondary transition-colors"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
+    </header>
 
       <AnimatePresence>
         {isOpen && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden absolute left-0 right-0 top-full overflow-hidden border-t border-border bg-background shadow-lg"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden fixed inset-0 z-40 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center gap-7"
           >
-            <div className="px-6 py-4 flex flex-col gap-1">
-              {navigationItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={handleNavClick(item.id)}
-                  className={cn(
-                    "px-3 py-2 text-sm rounded-md transition-colors",
-                    activeId === item.id
-                      ? "text-primary font-medium bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary",
-                  )}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <a
-                href={cvMailto}
-                onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 mt-2 px-3 py-2 bg-primary text-primary-foreground font-medium rounded-lg transition-all duration-200 hover:bg-primary/90 active:scale-[0.98] text-sm"
+            {navigationItems.map((item, index) => (
+              <motion.a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={handleNavClick(item.id)}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 * index, duration: 0.3, ease: "easeOut" }}
+                className={cn(
+                  "text-2xl font-semibold transition-colors",
+                  activeId === item.id ? "text-primary" : "text-foreground hover:text-primary",
+                )}
               >
-                <FileText className="w-4 h-4" />
-                <span>Request my CV</span>
-              </a>
-            </div>
-          </motion.nav>
+                {item.label}
+              </motion.a>
+            ))}
+
+            <motion.a
+              href={cvMailto}
+              onClick={() => setIsOpen(false)}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 * navigationItems.length, duration: 0.3, ease: "easeOut" }}
+              className="flex items-center gap-2 mt-3 px-5 py-3 bg-primary text-primary-foreground font-medium rounded-full transition-all duration-200 hover:bg-primary/90 active:scale-[0.98] text-base"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Request my CV</span>
+            </motion.a>
+          </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   )
 }

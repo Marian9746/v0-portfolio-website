@@ -12,7 +12,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative isolate overflow-hidden"
+      className="flex flex-col items-center justify-center pt-28 pb-16 sm:min-h-screen sm:justify-center sm:pt-0 sm:pb-0 px-6 text-center relative isolate overflow-hidden"
     >
       <div
         aria-hidden
@@ -88,7 +88,7 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 0.8, duration: 0.6 }}
-        className="absolute bottom-10 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+        className="hidden sm:flex absolute bottom-10 flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
       >
         <span className="text-xs font-light uppercase tracking-wider">Scroll</span>
         <ArrowDown className="w-4 h-4 animate-bounce" />
