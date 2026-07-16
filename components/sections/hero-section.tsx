@@ -43,7 +43,7 @@ export function HeroSection() {
         <SplitText
           text={personal.name}
           tag="h1"
-          className="text-6xl sm:text-8xl font-black tracking-tight text-foreground text-balance"
+          className="text-6xl font-extrabold tracking-tight text-foreground text-balance"
         />
 
         <motion.p

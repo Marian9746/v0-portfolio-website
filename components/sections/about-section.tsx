@@ -8,6 +8,7 @@ import { CertificationsTrustCard } from "@/components/certifications-trust-card"
 
 export function AboutSection() {
   const { about, personal } = profileData
+  const [beforeConnect, afterConnect] = about.description.split("and let's connect")
 
   return (
     <section id="about" className="scroll-mt-24 py-14 sm:py-20 px-6">
@@ -24,7 +25,11 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:items-start">
           <div className="lg:col-span-2 space-y-4">
             <Reveal className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm max-w-3xl">
-              {about.description}
+              {beforeConnect}
+              <a href="#contact" className="text-primary font-medium hover:underline">
+                and let&apos;s connect
+              </a>
+              {afterConnect}
             </Reveal>
 
             <Reveal className="flex items-center gap-2">

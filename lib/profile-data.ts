@@ -21,8 +21,9 @@ export const profileData = {
   // About Me Section
   about: {
     headline: "Engineer by profession, curious by nature. ",
-    description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms.
-    I’ve always been fascinated by how technology can solve real-world problems. I love the fact that tech allows us to achieve things we once thought were impossible; in a world that never stops evolving, I’m thrilled to be part of that change.`,
+    description: `I've always been curious about how complex systems work and how technology can make them better. That curiosity led me to study Telecommunications Engineering and build my career around Enterprise Architecture, Cloud, AI and Digital Twins.
+
+What motivates me most isn't any particular technology, but the opportunity to solve real-world problems by connecting ideas, people and systems. I'm constantly learning, exploring new technologies and challenging myself to grow. If you'd like to know more about what I do, take a look around—and let's connect.`,
 
     areasOfExpertise: [
       {
