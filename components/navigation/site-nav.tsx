@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { FileText, Menu, X } from "lucide-react"
+import { FileText, Menu, X, Linkedin, Download } from "lucide-react"
 import { navigationItems, profileData } from "@/lib/profile-data"
 import { useActiveSection } from "@/hooks/use-active-section"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -14,6 +14,7 @@ export function SiteNav() {
   const activeId = useActiveSection(navigationItems.map((item) => item.id))
 
   const cvMailto = `mailto:${personal.email}?subject=CV Request&body=Hi Marian,%0D%0A%0D%0AI would like to request your CV for review.%0D%0A%0D%0AThank you!%0D%0A%0D%0ABest regards`
+  const cvUrl = personal.cvUrl || cvMailto
 
   // Native anchor hash-navigation gets cancelled if the menu's close
   // re-render happens in the same or an overlapping task, so we take over
@@ -61,13 +62,23 @@ export function SiteNav() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
+          <a
+            href={personal.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 text-muted-foreground hover:text-primary hover:bg-secondary rounded-lg transition-colors"
+            aria-label="LinkedIn Profile"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
           <ThemeToggle />
           <a
-            href={cvMailto}
+            href={cvUrl}
+            download={personal.cvUrl ? true : undefined}
             className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-primary/90 hover:scale-[1.03] hover:shadow-md active:scale-[0.98] text-sm"
           >
-            <FileText className="w-4 h-4" />
-            <span>Request CV</span>
+            <Download className="w-4 h-4" />
+            <span>Download CV</span>
           </a>
         </div>
 

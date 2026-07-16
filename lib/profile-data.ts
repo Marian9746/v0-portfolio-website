@@ -8,19 +8,20 @@ export const profileData = {
     name: "Marian Díaz Romero",
     title: "Systems Engineer | Technology Advisory consultant",
     subtitle: "Systems Engineer | Technology Advisory consultant",
-    tagline: "Engineering cloud, AI and digital-twin systems that turn ambiguous problems into shipped products.",
+    tagline: "I turn complex enterprise challenges into scalable, intelligent systems—from architecture to deployment.",
     email: "mariandiazrom@gmail.com",
     location: "Sydney, Australia",
     phone: "+34 648 533 117",
     linkedin: "https://www.linkedin.com/in/mariandiazromero/",
     github: "https://github.com/Marian9746",
     credly: "https://www.credly.com/users/marian-diaz-romero",
-    portfolio: "https://tu-portfolio.com",
+    portfolio: "https://mariandiazromero.vercel.app",
+    cvUrl: "/cv/Marian_Diaz_Romero_CV.pdf",
   },
 
   // About Me Section
   about: {
-    headline: "Engineer by profession, curious by nature. ",
+    headline: "Systems Engineer & TOGAF® Certified Architect",
     description: `I am a Systems Engineer and TOGAF® Certified Architect with a strong background in Tech Advisory at global firms.
     I’ve always been fascinated by how technology can solve real-world problems. I love the fact that tech allows us to achieve things we once thought were impossible; in a world that never stops evolving, I’m thrilled to be part of that change.`,
 
@@ -282,13 +283,11 @@ I recommend Marian with complete confidence. Whoever hires her will gain a solid
     },
     {
       // PLACEHOLDER — replace with the real second recommendation letter
-      fromName: "Placeholder Referee Name",
-      fromRole: "Job Title, Company",
+      fromName: "Available Upon Request",
+      fromRole: "Reference",
       linkedin: "",
-      date: "2026",
-      body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      date: "",
+      body: `Request additional references and recommendations directly. I'm happy to connect you with colleagues, managers, and clients who can speak to my work and impact.`,
       files: {
         en: "",
         es: "",

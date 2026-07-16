@@ -5,6 +5,7 @@ import { ArrowDown } from "lucide-react"
 import { profileData } from "@/lib/profile-data"
 import { staggerContainer, fadeInUp } from "@/lib/motion"
 import SplitText from "@/components/reactbits/SplitText"
+import { StatusBadge } from "@/components/status-badge"
 
 export function HeroSection() {
   const { personal } = profileData
@@ -33,6 +34,10 @@ export function HeroSection() {
         variants={staggerContainer}
         className="max-w-3xl mx-auto flex flex-col items-center gap-6"
       >
+        <motion.div variants={fadeInUp}>
+          <StatusBadge />
+        </motion.div>
+
         <motion.span
           variants={fadeInUp}
           className="font-mono text-base font-medium uppercase tracking-[0.2em] text-muted-foreground/70"

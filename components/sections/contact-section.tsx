@@ -33,14 +33,14 @@ export function ContactSection() {
           </a>
         </Reveal>
 
-        <RevealGroup className="flex flex-wrap items-center justify-center gap-4">
+        <RevealGroup className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
           <RevealItem>
             <a
               href={`mailto:${personal.email}`}
-              className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
+              className="flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg active:scale-[0.98] w-full sm:w-auto"
             >
               <Mail className="w-4 h-4" />
-              Email
+              Send Email
             </a>
           </RevealItem>
           <RevealItem>
@@ -48,10 +48,10 @@ export function ContactSection() {
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-secondary/70 hover:scale-[1.03] hover:shadow-md active:scale-[0.98]"
+              className="flex items-center justify-center gap-2 px-8 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-secondary/70 hover:scale-[1.03] hover:shadow-md active:scale-[0.98] w-full sm:w-auto"
             >
               <Linkedin className="w-4 h-4" />
-              LinkedIn
+              Connect on LinkedIn
             </a>
           </RevealItem>
           <RevealItem>
@@ -59,10 +59,10 @@ export function ContactSection() {
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-secondary/70 hover:scale-[1.03] hover:shadow-md active:scale-[0.98]"
+              className="flex items-center justify-center gap-2 px-8 py-3 border border-border text-foreground rounded-lg font-medium transition-all duration-200 hover:bg-secondary hover:scale-[1.03] hover:shadow-md active:scale-[0.98] w-full sm:w-auto"
             >
               <Github className="w-4 h-4" />
-              GitHub
+              View GitHub
             </a>
           </RevealItem>
         </RevealGroup>

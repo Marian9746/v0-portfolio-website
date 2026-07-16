@@ -22,7 +22,7 @@ import { profileData } from "@/lib/profile-data"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { LogoLoop } from "@/components/reactbits/LogoLoop"
+
 
 const skillIcons: Array<{ match: string; icon: LucideIcon }> = [
   { match: "python", icon: Code },
@@ -130,10 +130,7 @@ export function SpecialtySection() {
           ))}
         </Reveal>
 
-        {/* Tech Stack marquee */}
-        <Reveal>
-          <LogoLoop logos={logos} speed={40} logoHeight={36} gap={16} fadeOut pauseOnHover />
-        </Reveal>
+
       </div>
     </section>
   )

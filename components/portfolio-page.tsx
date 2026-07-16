@@ -8,6 +8,7 @@ import { ProjectsSection } from "@/components/sections/projects-section"
 import { RecommendationLetterSection } from "@/components/sections/recommendation-letter-section"
 import { HobbiesSection } from "@/components/sections/hobbies-section"
 import { ContactSection } from "@/components/sections/contact-section"
+import { WhyHireMeSection } from "@/components/sections/why-hire-me-section"
 import { Footer } from "@/components/footer"
 
 export function PortfolioPage() {
@@ -21,6 +22,7 @@ export function PortfolioPage() {
         <ExperienceSection />
         <EducationSection />
         <ProjectsSection />
+        <WhyHireMeSection />
         <RecommendationLetterSection />
         <HobbiesSection />
         <ContactSection />

@@ -99,7 +99,7 @@ export function ProjectsSection() {
         <Reveal className="space-y-3">
           <SectionHeading icon={FolderGit2} eyebrow="Projects" heading="Selected Work" />
           <p className="text-muted-foreground max-w-xl text-sm">
-            A few representative projects. More details and case studies coming soon.
+            Selected projects showcasing my expertise in IoT, cloud migration, and digital transformation. Case studies and live demos available upon request.
           </p>
         </Reveal>
 
