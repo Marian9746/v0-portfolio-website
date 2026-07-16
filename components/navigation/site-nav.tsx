@@ -13,7 +13,7 @@ export function SiteNav() {
   const { personal } = profileData
   const activeId = useActiveSection(navigationItems.map((item) => item.id))
 
-  const cvMailto = `mailto:${personal.email}?subject=CV Request&body=Hi Marian,%0D%0A%0D%0AI would like to request your CV for review.%0D%0A%0D%0AThank you!%0D%0A%0D%0ABest regards`
+  const cvUrl = "/cv/CV_MarianDiazRomero_Engineer.pdf"
 
   // Native anchor hash-navigation gets cancelled if the menu's close
   // re-render happens in the same or an overlapping task, so we take over
@@ -63,11 +63,13 @@ export function SiteNav() {
         <div className="hidden md:flex items-center gap-2">
           <ThemeToggle />
           <a
-            href={cvMailto}
+            href={cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 hover:bg-primary/90 hover:scale-[1.03] hover:shadow-md active:scale-[0.98] text-sm"
           >
             <FileText className="w-4 h-4" />
-            <span>Request CV</span>
+            <span>Download CV</span>
           </a>
         </div>
 
@@ -112,7 +114,9 @@ export function SiteNav() {
             ))}
 
             <motion.a
-              href={cvMailto}
+              href={cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -120,7 +124,7 @@ export function SiteNav() {
               className="flex items-center gap-2 mt-3 px-5 py-3 bg-primary text-primary-foreground font-medium rounded-full transition-all duration-200 hover:bg-primary/90 active:scale-[0.98] text-base"
             >
               <FileText className="w-4 h-4" />
-              <span>Request my CV</span>
+              <span>Download CV</span>
             </motion.a>
           </motion.div>
         )}
