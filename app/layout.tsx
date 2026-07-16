@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   keywords: ['software engineer', 'developer', 'portfolio', 'full stack', 'react', 'typescript'],
   authors: [{ name: 'Marian Díaz Romero' }],
   icons: {
-    icon: '/MD-favicon-5.png',
-    shortcut: '/MD-favicon-5.png',
-    apple: '/MD-favicon-5.png',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
 }
 
